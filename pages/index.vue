@@ -1,6 +1,17 @@
 <template>
+  <!-- Hero Section -->
   <section id="hero">
     <HeroSection />
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <AboutSection />
+  </section>
+
+  <!-- Platform Section -->
+  <section id="platform">
+    <PlatformSection />
   </section>
 </template>
 
