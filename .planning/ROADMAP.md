@@ -56,13 +56,14 @@ Plans:
 4. Photo gallery displays campaign photos with lightbox modal and all images include alt text
 5. Donate CTA appears in hero and at least 2 additional locations, linking to external platform with transparent options
 
-**Plans**: 5 plans in 4 waves
+**Plans**: 6 plans in 4 waves
 
 Plans:
 - [ ] 02-01-PLAN.md — Hero section with candidate photo, tagline, and primary donate CTA (Wave 1)
 - [ ] 02-02-PLAN.md — About/Bio section and Platform/Issues section with card-based layout (Wave 2)
 - [ ] 02-03-PLAN.md — Photo gallery with @nuxt/image optimization and lightbox modal (Wave 3)
-- [ ] 02-04-PLAN.md — Campaign members, Endorsements, and Contact sections (Wave 3)
+- [ ] 02-04-PLAN.md — Campaign members and Endorsements sections (Wave 3)
+- [ ] 02-06-PLAN.md — Contact section with social media and footer integration (Wave 3)
 - [ ] 02-05-PLAN.md — Donation CTA placement, brand colors, WCAG 2.1 AA verification (Wave 4)
 
 ### Phase 3: Performance & SEO
