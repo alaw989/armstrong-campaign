@@ -37,9 +37,10 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md — Nuxt 4 project setup with SSG configuration, TypeScript, and module installation (Wave 1) ✅ Completed 2026-02-24
-- [ ] 01-02-PLAN.md — Layout shell with sticky navigation, scroll spy, and mobile hamburger menu (Wave 2)
-- [ ] 01-03-PLAN.md — Legal disclaimer components, footer with FEC/Georgia compliance, and WCAG 2.1 AA contrast verification (Wave 3)
-- [ ] 01-04-PLAN.md — DigitalOcean App Platform deployment pipeline with GitHub integration (Wave 4)
+- [x] 01-02-PLAN.md — Layout shell with sticky navigation, scroll spy, and mobile hamburger menu (Wave 2) ✅ Completed 2026-02-24
+- [x] 01-03-PLAN.md — Legal disclaimer components, footer with FEC/Georgia compliance, and WCAG 2.1 AA contrast verification (Wave 3) ✅ Completed 2026-02-24
+- [x] 01-04-PLAN.md — DigitalOcean App Platform deployment pipeline with GitHub integration (Wave 4) ✅ Completed 2026-02-24
+- [x] 01-05-PLAN.md — Production deployment setup with server configuration ✅ Completed 2026-02-24
 
 ### Phase 2: Content & Engagement
 
@@ -60,7 +61,7 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md — Hero section with candidate photo, tagline, and primary donate CTA (Wave 1) ✅ Completed 2026-02-24
-- [ ] 02-02-PLAN.md — About/Bio section and Platform/Issues section with card-based layout (Wave 2)
+- [x] 02-02-PLAN.md — About/Bio section and Platform/Issues section with card-based layout (Wave 2) ✅ Completed 2026-02-24
 - [ ] 02-03-PLAN.md — Photo gallery with @nuxt/image optimization and lightbox modal (Wave 3)
 - [ ] 02-04-PLAN.md — Campaign members and Endorsements sections (Wave 3)
 - [ ] 02-06-PLAN.md — Contact section with social media and footer integration (Wave 3)
@@ -94,8 +95,8 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Compliance | 1/4 | In progress | 2026-02-24 |
-| 2. Content & Engagement | 1/6 | In progress | 2026-02-24 |
+| 1. Foundation & Compliance | 5/5 | Complete | 2026-02-24 |
+| 2. Content & Engagement | 2/6 | In progress | 2026-02-24 |
 | 3. Performance & SEO | 0/3 | Not started | - |
 
-**Overall Progress**: 2/13 plans complete (15%)
+**Overall Progress**: 7/14 plans complete (50%)
