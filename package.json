@@ -8,7 +8,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "npm run generate && doctl apps create --spec .do/app.yaml"
   },
   "dependencies": {
     "@nuxt/ui": "^3.0.0",

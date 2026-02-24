@@ -1,0 +1,21 @@
+name: campaign-site
+region: nyc
+services:
+  - name: web
+    github:
+      repo: YOUR_USERNAME/campaign-site
+      branch: main
+    run_command: npm run generate
+    build_command: npm run generate
+    output_dir: .output/public
+    environment_slug: node-js
+    envs:
+      - key: NODE_VERSION
+        value: "20"
+    instance_size_slug: basic-xxs
+    instance_count: 1
+    routes:
+      - route: /
+    # Static site configuration
+    source_dir: /
+    dockerfile_path: ""
