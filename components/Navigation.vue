@@ -17,6 +17,8 @@ const sections = [
   { id: 'about', name: 'About' },
   { id: 'platform', name: 'Platform' },
   { id: 'gallery', name: 'Gallery' },
+  { id: 'team', name: 'Team' },
+  { id: 'endorsements', name: 'Endorsements' },
   { id: 'contact', name: 'Contact' }
 ]
 
