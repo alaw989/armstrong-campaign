@@ -56,6 +56,28 @@ export default defineAppConfig({
     url: 'https://secure.actblue.com/donate/armstrong-for-houston'
   },
 
+  // Contact information
+  // TODO: Update with campaign-provided final contact details before launch
+  contact: {
+    email: 'info@armstrongforhouston.com',
+    phone: '(478) 555-0123',
+    address: '123 Main Street, Warner Robins, GA 31088',
+    volunteerEmail: 'volunteer@armstrongforhouston.com'
+  },
+
+  // Social media links
+  // TODO: Update with actual campaign social media URLs before launch
+  social: [
+    {
+      platform: 'Facebook',
+      url: 'https://facebook.com/armstrongforhouston'
+    },
+    {
+      platform: 'Instagram',
+      url: 'https://instagram.com/armstrongforhouston'
+    }
+  ],
+
   // About section content
   // TODO: Update with campaign-provided final content before launch
   about: {
