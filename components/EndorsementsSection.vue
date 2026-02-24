@@ -48,7 +48,7 @@ const endorsements: Endorsement[] = [
 <template>
   <section id="endorsements" class="py-20 bg-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-teal-900">
         Community Endorsements
       </h2>
 

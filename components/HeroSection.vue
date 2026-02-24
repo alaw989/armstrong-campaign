@@ -61,7 +61,7 @@ const handleImageError = () => {
           </h1>
 
           <!-- Position title -->
-          <p class="text-2xl md:text-3xl text-gray-700 font-medium mt-2">
+          <p class="text-2xl md:text-3xl text-teal-700 font-medium mt-2">
             {{ heroContent.title }}
           </p>
 

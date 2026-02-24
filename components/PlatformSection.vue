@@ -63,12 +63,12 @@ const positions: PlatformPosition[] = [
   >
     <div class="container mx-auto px-4">
       <!-- Section heading -->
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-teal-900">
         My Platform
       </h2>
 
       <!-- Section subheading -->
-      <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+      <p class="text-center text-lg text-teal-700 mb-12 max-w-2xl mx-auto">
         Here's where I stand on the issues that matter most to Houston County.
       </p>
 

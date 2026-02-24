@@ -38,13 +38,13 @@ My vision is of a Houston County that works for everyone — where opportunity i
       <!-- Content constrained for readability -->
       <div class="max-w-4xl mx-auto">
         <!-- Section heading -->
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-teal-900">
           {{ aboutContent.title }}
         </h2>
 
         <!-- Who I Am subsection -->
-        <div class="mb-10">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-800">
+        <div class="mb-10 border-l-4 border-teal-800 pl-4">
+          <h3 class="text-2xl font-semibold mb-4 text-teal-800">
             Who I Am
           </h3>
           <p class="text-lg leading-relaxed text-gray-700 whitespace-pre-line">
@@ -53,8 +53,8 @@ My vision is of a Houston County that works for everyone — where opportunity i
         </div>
 
         <!-- Why I'm Running subsection -->
-        <div class="mb-10">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-800">
+        <div class="mb-10 border-l-4 border-teal-800 pl-4">
+          <h3 class="text-2xl font-semibold mb-4 text-teal-800">
             Why I'm Running
           </h3>
           <p class="text-lg leading-relaxed text-gray-700 whitespace-pre-line">
@@ -63,8 +63,8 @@ My vision is of a Houston County that works for everyone — where opportunity i
         </div>
 
         <!-- My Vision subsection -->
-        <div>
-          <h3 class="text-2xl font-semibold mb-4 text-gray-800">
+        <div class="border-l-4 border-teal-800 pl-4">
+          <h3 class="text-2xl font-semibold mb-4 text-teal-800">
             My Vision
           </h3>
           <p class="text-lg leading-relaxed text-gray-700 whitespace-pre-line">

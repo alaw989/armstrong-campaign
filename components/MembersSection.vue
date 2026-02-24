@@ -51,7 +51,7 @@ const members: TeamMember[] = [
 <template>
   <section id="team" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-teal-900">
         Meet the Team
       </h2>
 
@@ -68,7 +68,7 @@ const members: TeamMember[] = [
         <article
           v-for="member in members"
           :key="member.id"
-          class="bg-white rounded-lg p-6 text-center shadow-md"
+          class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg hover:border-teal-600 transition-all border border-transparent"
         >
           <!-- Member photo -->
           <img
@@ -79,12 +79,12 @@ const members: TeamMember[] = [
           >
 
           <!-- Member name -->
-          <h3 class="font-semibold text-lg text-gray-900 mb-1">
+          <h3 class="font-semibold text-lg text-teal-900 mb-1">
             {{ member.name }}
           </h3>
 
           <!-- Member role -->
-          <p class="text-gray-600">
+          <p class="text-teal-700 text-sm">
             {{ member.role }}
           </p>
         </article>

@@ -46,11 +46,11 @@ withDefaults(defineProps<Props>(), {
       class="icon-circle w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center mb-4"
       aria-hidden="true"
     >
-      <span class="text-2xl">{{ icon }}</span>
+      <span class="text-xl text-teal-800">{{ icon }}</span>
     </div>
 
     <!-- Title -->
-    <h3 class="text-xl font-semibold text-gray-900 mb-3">
+    <h3 class="text-xl font-semibold text-teal-900 mb-3">
       {{ title }}
     </h3>
 

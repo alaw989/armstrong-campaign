@@ -26,7 +26,7 @@ const social = config.social || []
 </script>
 
 <template>
-  <section id="contact" class="py-20 bg-gray-900 text-white">
+  <section id="contact" class="py-20 bg-teal-900 text-white">
     <div class="container mx-auto px-4">
       <!-- Section heading -->
       <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
