@@ -12,6 +12,7 @@
     "deploy": "npm run generate && doctl apps create --spec .do/app.yaml"
   },
   "dependencies": {
+    "@nuxt/image": "^2.0.0",
     "@nuxt/ui": "^3.0.0",
     "@nuxtjs/seo": "^2.0.0",
     "nuxt": "^3.15.0",

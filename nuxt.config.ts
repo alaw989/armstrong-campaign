@@ -27,7 +27,39 @@ export default defineNuxtConfig({
   },
 
   // Modules - disable og-image due to unenv issue
-  modules: ['@nuxt/ui', '@nuxtjs/seo'],
+  modules: ['@nuxt/ui', '@nuxtjs/seo', '@nuxt/image'],
+
+  // Image optimization configuration
+  image: {
+    // Image quality
+    quality: 80,
+    // Modern formats (browser will use best supported)
+    formats: ['webp', 'avif', 'jpeg'],
+    // Screen sizes for responsive images
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
+    // Presets for gallery
+    presets: {
+      galleryThumb: {
+        width: 400,
+        height: 400,
+        fit: 'cover',
+        quality: 75,
+        format: 'webp',
+      },
+      galleryFull: {
+        width: 1200,
+        quality: 85,
+        format: 'webp',
+      },
+    },
+  },
 
   // SEO module configuration (@nuxtjs/seo v2)
   seo: {
