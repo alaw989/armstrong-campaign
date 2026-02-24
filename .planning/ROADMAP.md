@@ -33,13 +33,13 @@ Decimal phases appear between their surrounding integers in numeric order.
 4. All color combinations meet WCAG 2.1 AA contrast standards (minimum 4.5:1 for text)
 5. Site has proper meta tags, sitemap.xml, and robots.txt for SEO
 
-**Plans**: TBD (estimated 3-4 plans)
+**Plans**: 4 plans in 4 waves
 
 Plans:
-- [ ] 01-01: Nuxt 4 project setup with SSG configuration, TypeScript, and module installation
-- [ ] 01-02: Layout shell with sticky navigation, scroll spy, and mobile hamburger menu
-- [ ] 01-03: Legal disclaimer components and footer with FEC/Georgia compliance
-- [ ] 01-04: DigitalOcean App Platform deployment pipeline with GitHub integration
+- [ ] 01-01-PLAN.md — Nuxt 4 project setup with SSG configuration, TypeScript, and module installation (Wave 1)
+- [ ] 01-02-PLAN.md — Layout shell with sticky navigation, scroll spy, and mobile hamburger menu (Wave 2)
+- [ ] 01-03-PLAN.md — Legal disclaimer components and footer with FEC/Georgia compliance (Wave 3)
+- [ ] 01-04-PLAN.md — DigitalOcean App Platform deployment pipeline with GitHub integration (Wave 4)
 
 ### Phase 2: Content & Engagement
 
