@@ -125,6 +125,13 @@ onBeforeUnmount(() => {
               class="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900"
             />
           </button>
+
+          <!-- Donate CTA Button (desktop) -->
+          <DonateButton
+            size="small"
+            variant="nav"
+            text="Donate"
+          />
         </div>
 
         <!-- Mobile Menu Button -->
@@ -181,6 +188,16 @@ onBeforeUnmount(() => {
         >
           {{ section.name }}
         </button>
+
+        <!-- Donate CTA (mobile) -->
+        <div class="pt-2">
+          <DonateButton
+            size="medium"
+            variant="primary"
+            text="Donate"
+            class="w-full"
+          />
+        </div>
       </div>
     </nav>
   </header>
