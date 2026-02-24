@@ -94,7 +94,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FND-01 | Phase 1 | Pending |
 | FND-02 | Phase 1 | Pending |
 | FND-03 | Phase 1 | Pending |
-| FND-04 | Phase 1 | Pending |
+| FND-04 | Phase 2 | Pending |
 | FND-05 | Phase 1 | Pending |
 | FND-06 | Phase 1 | Pending |
 | FND-07 | Phase 1 | Pending |
@@ -126,6 +126,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 - Mapped to phases: 29
 - Unmapped: 0 ✓
 
+**Phase Distribution:**
+- Phase 1 (Foundation & Compliance): 10 requirements
+- Phase 2 (Content & Engagement): 17 requirements
+- Phase 3 (Performance & SEO): 2 requirements
+
 ---
 *Requirements defined: 2026-02-23*
-*Last updated: 2026-02-23 after initial definition*
+*Last updated: 2026-02-23 after roadmap creation*
