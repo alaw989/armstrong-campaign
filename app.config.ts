@@ -108,5 +108,64 @@ My vision is of a Houston County that works for everyone — where opportunity i
         icon: '🏥'
       }
     ]
-  }
+  },
+
+  // Team members
+  // TODO: Replace with campaign-provided team information
+  team: [
+    {
+      id: '1',
+      name: 'Jane Smith',
+      role: 'Campaign Manager',
+      photo: '/images/team/jane-smith.jpg'
+    },
+    {
+      id: '2',
+      name: 'John Doe',
+      role: 'Treasurer',
+      photo: '/images/team/john-doe.jpg'
+    },
+    {
+      id: '3',
+      name: 'Maria Garcia',
+      role: 'Volunteer Coordinator',
+      photo: '/images/team/maria-garcia.jpg'
+    },
+    {
+      id: '4',
+      name: 'James Wilson',
+      role: 'Communications Director',
+      photo: '/images/team/james-wilson.jpg'
+    }
+  ],
+
+  // Community endorsements
+  // TODO: Replace with campaign-provided endorsements
+  endorsements: [
+    {
+      id: '1',
+      quote: "Xzandria Armstrong brings the leadership and integrity Houston County needs. Her commitment to our schools and families is unwavering.",
+      name: 'Dr. Sarah Johnson',
+      title: 'Former Houston County School Board Member'
+    },
+    {
+      id: '2',
+      quote: "I've seen Xzandria's dedication to our community firsthand. She listens, she cares, and she gets things done.",
+      name: 'Rev. Michael Williams',
+      title: 'Pastor, First Baptist Church of Warner Robins'
+    },
+    {
+      id: '3',
+      quote: "As a small business owner, I need someone who understands the challenges we face. Xzandria has been a champion for local businesses.",
+      name: 'Patricia Chen',
+      title: 'Owner, Chen Family Restaurant',
+      organization: 'Houston County Chamber of Commerce Member'
+    },
+    {
+      id: '4',
+      quote: "Xzandria's vision for education in Houston County is exactly what our students and teachers need. She has my full support.",
+      name: 'Margaret Thompson',
+      title: 'Retired Teacher, 30 years in Houston County Schools'
+    }
+  ]
 })
