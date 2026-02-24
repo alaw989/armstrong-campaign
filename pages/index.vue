@@ -13,6 +13,26 @@
   <section id="platform">
     <PlatformSection />
   </section>
+
+  <!-- Gallery Section (placeholder) -->
+  <section id="gallery">
+    <GallerySection />
+  </section>
+
+  <!-- Team Members -->
+  <section id="team">
+    <MembersSection />
+  </section>
+
+  <!-- Endorsements -->
+  <section id="endorsements">
+    <EndorsementsSection />
+  </section>
+
+  <!-- Contact Section (placeholder) -->
+  <section id="contact">
+    <ContactSection />
+  </section>
 </template>
 
 <script setup lang="ts">
