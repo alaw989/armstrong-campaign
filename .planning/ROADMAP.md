@@ -63,7 +63,7 @@ Plans:
 - [x] 02-01-PLAN.md — Hero section with candidate photo, tagline, and primary donate CTA (Wave 1) ✅ Completed 2026-02-24
 - [x] 02-02-PLAN.md — About/Bio section and Platform/Issues section with card-based layout (Wave 2) ✅ Completed 2026-02-24
 - [ ] 02-03-PLAN.md — Photo gallery with @nuxt/image optimization and lightbox modal (Wave 3)
-- [ ] 02-04-PLAN.md — Campaign members and Endorsements sections (Wave 3)
+- [x] 02-04-PLAN.md — Campaign members and Endorsements sections (Wave 3) ✅ Completed 2026-02-24
 - [x] 02-06-PLAN.md — Contact section with social media and footer integration (Wave 3) ✅ Completed 2026-02-24
 - [ ] 02-05-PLAN.md — Donation CTA placement, brand colors, WCAG 2.1 AA verification (Wave 4)
 
@@ -96,7 +96,7 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Compliance | 5/5 | Complete | 2026-02-24 |
-| 2. Content & Engagement | 3/6 | In progress | 2026-02-24 |
+| 2. Content & Engagement | 4/6 | In progress | 2026-02-24 |
 | 3. Performance & SEO | 0/3 | Not started | - |
 
-**Overall Progress**: 8/14 plans complete (57%)
+**Overall Progress**: 9/14 plans complete (64%)
