@@ -87,6 +87,18 @@ const positions: PlatformPosition[] = [
           role="listitem"
         />
       </div>
+
+      <!-- Donate CTA after platform cards -->
+      <div class="mt-12 text-center">
+        <p class="text-lg text-gray-700 mb-6">
+          Want to support Xzandria's platform for Houston County?
+        </p>
+        <DonateButton
+          variant="secondary"
+          size="large"
+          text="Donate to the Campaign"
+        />
+      </div>
     </div>
   </section>
 </template>
