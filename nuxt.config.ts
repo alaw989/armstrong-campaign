@@ -47,4 +47,7 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
     },
   },
+
+  // Global CSS
+  css: ['~/assets/css/main.css'],
 })
