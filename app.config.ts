@@ -2,7 +2,8 @@
 export default defineAppConfig({
   site: {
     name: 'Xzandria Armstrong for Houston County',
-    description: 'Leadership for Houston County, GA'
+    description: 'Leadership for Houston County, GA',
+    url: 'https://armstrongforhouston.com'
   },
   committee: {
     name: 'Armstrong for Houston County Committee',
