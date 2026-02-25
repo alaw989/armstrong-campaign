@@ -196,10 +196,15 @@ onBeforeUnmount(() => {
         </button>
 
         <!-- Image -->
-        <img
+        <NuxtImg
           :src="currentImage.src"
           :alt="currentImage.alt"
+          width="1200"
+          height="900"
+          loading="eager"
+          format="webp"
           class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
+          preset="galleryFull"
         />
 
         <!-- Next Button -->
