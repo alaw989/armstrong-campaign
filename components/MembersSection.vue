@@ -84,7 +84,7 @@ const members: TeamMember[] = [
           </h3>
 
           <!-- Member role -->
-          <p class="text-teal-700 text-sm">
+          <p class="text-teal-800 text-sm">
             {{ member.role }}
           </p>
         </article>
