@@ -47,7 +47,7 @@ export default defineAppConfig({
     name: 'Xzandria Armstrong',
     title: 'For Houston County, GA',
     tagline: 'Leadership. Integrity. Progress.',
-    photo: '/images/candidate-portrait.jpg',
+    photo: '/images/candidate-portrait.svg',
     photoAlt: 'Xzandria Armstrong, candidate for Houston County'
   },
 
@@ -139,25 +139,25 @@ My vision is of a Houston County that works for everyone — where opportunity i
       id: '1',
       name: 'Jane Smith',
       role: 'Campaign Manager',
-      photo: '/images/team/jane-smith.jpg'
+      photo: '/images/team/jane-smith.svg'
     },
     {
       id: '2',
       name: 'John Doe',
       role: 'Treasurer',
-      photo: '/images/team/john-doe.jpg'
+      photo: '/images/team/john-doe.svg'
     },
     {
       id: '3',
       name: 'Maria Garcia',
       role: 'Volunteer Coordinator',
-      photo: '/images/team/maria-garcia.jpg'
+      photo: '/images/team/maria-garcia.svg'
     },
     {
       id: '4',
       name: 'James Wilson',
       role: 'Communications Director',
-      photo: '/images/team/james-wilson.jpg'
+      photo: '/images/team/james-wilson.svg'
     }
   ],
 

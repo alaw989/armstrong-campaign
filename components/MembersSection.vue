@@ -21,28 +21,28 @@ const members: TeamMember[] = [
     id: '1',
     name: 'Jane Smith',
     role: 'Campaign Manager',
-    photo: '/images/team/jane-smith.jpg',
+    photo: '/images/team/jane-smith.svg',
     alt: 'Jane Smith, Campaign Manager'
   },
   {
     id: '2',
     name: 'John Doe',
     role: 'Treasurer',
-    photo: '/images/team/john-doe.jpg',
+    photo: '/images/team/john-doe.svg',
     alt: 'John Doe, Treasurer'
   },
   {
     id: '3',
     name: 'Maria Garcia',
     role: 'Volunteer Coordinator',
-    photo: '/images/team/maria-garcia.jpg',
+    photo: '/images/team/maria-garcia.svg',
     alt: 'Maria Garcia, Volunteer Coordinator'
   },
   {
     id: '4',
     name: 'James Wilson',
     role: 'Communications Director',
-    photo: '/images/team/james-wilson.jpg',
+    photo: '/images/team/james-wilson.svg',
     alt: 'James Wilson, Communications Director'
   }
 ]

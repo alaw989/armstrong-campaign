@@ -1,11 +1,50 @@
 /**
  * Global CSS Styles
  * Foundation styles for accessibility and smooth scrolling
+ *
+ * Tailwind v4 CSS-first configuration
  */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Custom theme configuration for Tailwind v4 */
+@theme {
+  /* Brand colors - Teal scale */
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+
+  /* Gray scale */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Yellow/Gold scale for accents */
+  --color-yellow-50: #fefce8;
+  --color-yellow-100: #fef9c3;
+  --color-yellow-200: #fef08a;
+  --color-yellow-300: #fde047;
+  --color-yellow-400: #facc15;
+  --color-yellow-500: #eab308;
+  --color-yellow-600: #ca8a04;
+  --color-yellow-700: #a16207;
+  --color-yellow-800: #854d0e;
+  --color-yellow-900: #713f12;
+}
 
 /* Smooth scroll behavior for navigation */
 html {
@@ -38,20 +77,3 @@ html {
 [id] {
   scroll-margin-top: 80px;
 }
-
-/*
- * Brand Color Utilities
- * Campaign brand colors (teals and golds) for consistent theming
- * All colors verified for WCAG 2.1 AA compliance
- *
- * Teal scale:
- * - teal-50: #f0fdfa (lightest backgrounds)
- * - teal-600: #0d9488 (icon backgrounds, buttons)
- * - teal-700: #0f766e (large text only, 18px+)
- * - teal-800: #115e59 (primary text, buttons, borders)
- * - teal-900: #134e4a (headings)
- *
- * Yellow/Gold scale:
- * - yellow-500: #eab308 (secondary buttons, accents)
- * - yellow-600: #ca8a04 (secondary button hover)
- */
