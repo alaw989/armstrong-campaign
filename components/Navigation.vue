@@ -112,7 +112,7 @@ onBeforeUnmount(() => {
             v-for="section in sections"
             :key="section.id"
             @click="scrollToSection(section.id)"
-            class="text-sm font-medium transition-colors relative py-2"
+            class="text-sm font-medium transition-colors relative py-2 cursor-pointer"
             :class="{
               'text-gray-900': activeSection === section.id,
               'text-gray-600 hover:text-gray-900': activeSection !== section.id
@@ -180,7 +180,7 @@ onBeforeUnmount(() => {
           v-for="section in sections"
           :key="section.id"
           @click="scrollToSection(section.id)"
-          class="block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors"
+          class="block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors cursor-pointer"
           :class="{
             'bg-gray-100 text-gray-900': activeSection === section.id,
             'text-gray-700 hover:bg-gray-50 hover:text-gray-900': activeSection !== section.id
