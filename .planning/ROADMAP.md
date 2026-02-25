@@ -82,12 +82,12 @@ Plans:
 3. All images are optimized with WebP/AVIF conversion and lazy loading
 4. Site is fully mobile-responsive and passes WCAG 2.1 Level AA accessibility standards
 
-**Plans**: TBD (estimated 2-3 plans)
+**Plans**: 3 plans in 3 waves
 
 Plans:
-- [ ] 03-01: Image optimization with @nuxt/image (WebP/AVIF, lazy loading, responsive sizes)
-- [ ] 03-02: Performance tuning (bundle splitting, script optimization, Core Web Vitals)
-- [ ] 03-03: Final accessibility audit and mobile responsiveness testing
+- [ ] 03-01-PLAN.md — Image optimization with @nuxt/image (Wave 1)
+- [ ] 03-02-PLAN.md — Performance tuning and SEO meta tags (Wave 2)
+- [ ] 03-03-PLAN.md — Final verification with Lighthouse audit (Wave 3)
 
 ## Progress
 
