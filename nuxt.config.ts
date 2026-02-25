@@ -44,8 +44,15 @@ export default defineNuxtConfig({
       xl: 1280,
       xxl: 1536,
     },
-    // Presets for gallery
+    // Presets for gallery and hero
     presets: {
+      hero: {
+        width: 800,
+        height: 1067,
+        fit: 'cover',
+        quality: 85,
+        format: 'webp',
+      },
       galleryThumb: {
         width: 400,
         height: 400,
