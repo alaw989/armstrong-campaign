@@ -27,6 +27,9 @@ const isScrolled = ref(false)
 const activeSection = ref('')
 const isMobileMenuOpen = ref(false)
 
+// Cache section positions to avoid layout thrashing
+const sectionPositions = ref<Map<string, number>>(new Map())
+
 // Scroll to section with smooth behavior
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId)
@@ -47,31 +50,43 @@ const closeMobileMenu = () => {
   isMobileMenuOpen.value = false
 }
 
-// Update scroll state and active section
+// Cache section positions once on mount to avoid reading offsetTop during scroll
+const cacheSectionPositions = () => {
+  const positions = new Map<string, number>()
+  for (const section of sections) {
+    const element = document.getElementById(section.id)
+    if (element) {
+      positions.set(section.id, element.offsetTop)
+    }
+  }
+  sectionPositions.value = positions
+}
+
+// Update scroll state and active section using cached positions
 const updateScrollState = () => {
   // Update isScrolled state for shadow effect
   isScrolled.value = window.scrollY > 50
 
-  // Update active section based on scroll position
+  // Update active section using cached positions (no layout thrashing)
   const scrollPosition = window.scrollY + 100 // Offset for nav height
 
   for (const section of sections) {
+    const top = sectionPositions.value.get(section.id) ?? 0
     const element = document.getElementById(section.id)
-    if (element) {
-      const top = element.offsetTop
-      const bottom = top + element.offsetHeight
+    const bottom = element ? top + element.offsetHeight : top + 1000
 
-      if (scrollPosition >= top && scrollPosition < bottom) {
-        activeSection.value = section.id
-        break
-      }
+    if (scrollPosition >= top && scrollPosition < bottom) {
+      activeSection.value = section.id
+      break
     }
   }
 }
 
 onMounted(() => {
-  // Add scroll event listener
-  window.addEventListener('scroll', updateScrollState)
+  // Cache section positions once
+  cacheSectionPositions()
+  // Add scroll event listener with passive option for better INP
+  window.addEventListener('scroll', updateScrollState, { passive: true })
   // Initial call to set active section on page load
   updateScrollState()
 })
