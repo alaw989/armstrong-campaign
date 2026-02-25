@@ -3,6 +3,10 @@
  * Foundation styles for accessibility and smooth scrolling
  */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Smooth scroll behavior for navigation */
 html {
   scroll-behavior: smooth;
