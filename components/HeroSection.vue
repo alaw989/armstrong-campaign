@@ -96,18 +96,20 @@ const handleImageError = () => {
 
             <!-- Candidate photo -->
             <div class="relative">
-              <img
+              <NuxtImg
                 :src="heroContent.photo"
                 :alt="heroContent.photoAlt"
-                width="600"
-                height="800"
+                :width="800"
+                :height="1067"
                 loading="eager"
                 fetchpriority="high"
+                preset="hero"
+                format="webp"
                 class="rounded-2xl shadow-2xl max-w-xs md:max-w-md lg:max-w-lg w-full h-auto object-cover"
                 :class="{ 'hidden': imageError }"
                 @load="handleImageLoad"
                 @error="handleImageError"
-              >
+              />
 
               <!-- Placeholder when image not available -->
               <div
