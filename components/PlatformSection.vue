@@ -19,38 +19,37 @@ interface PlatformPosition {
   icon: string
 }
 
-// Platform positions data
-// TODO: Move to app.config.ts when final content is available
+// Platform positions data - District 4 Blueprint
 const positions: PlatformPosition[] = [
   {
-    id: 'education',
-    title: 'Education',
-    description: 'Investing in our schools and ensuring every child has access to quality education.',
-    icon: '📚'
+    id: 'literacy',
+    title: 'Literacy is the Foundation',
+    description: 'District 4 Reads: Reading intervention specialists and literacy coaches in our schools. A Two-Generation Model bringing GED and Adult Literacy classes into school buildings. Monthly progress tracking and public reports on literacy scores.',
+    icon: '⭐'
   },
   {
-    id: 'economy',
-    title: 'Economic Growth',
-    description: 'Supporting local businesses and creating good-paying jobs for Houston County families.',
-    icon: '💼'
-  },
-  {
-    id: 'public-safety',
-    title: 'Public Safety',
-    description: 'Ensuring our neighborhoods are safe and supporting our first responders.',
+    id: 'pipeline',
+    title: 'Breaking the Cycle',
+    description: 'Reducing the school-to-prison pipeline by swapping suspensions for support through Restorative Justice. More counselors and mentors, not exclusionary discipline. Early intervention at the 3rd-grade mark—reading on level means a future.',
     icon: '🛡️'
   },
   {
-    id: 'infrastructure',
-    title: 'Infrastructure',
-    description: 'Improving roads, bridges, and broadband access for all communities.',
-    icon: '🏗️'
+    id: 'trade-tech',
+    title: 'Trade, Tech & Readiness',
+    description: 'Trade certification before graduation. Cyber Security classes in district schools. Expanded partnerships with Houston County Career Academy to prepare District 4 kids for the jobs that are actually hiring.',
+    icon: '🛠️'
   },
   {
-    id: 'healthcare',
-    title: 'Healthcare Access',
-    description: 'Expanding access to quality healthcare and reducing costs for families.',
-    icon: '🏥'
+    id: 'funding',
+    title: 'Bringing the Money Home',
+    description: 'Building relationships with retail, industry, and military leaders at Robins AFB to fund after-school programs, trafficking awareness, and adult literacy. Ensuring Board of Education budgets prioritize District 4 classrooms.',
+    icon: '💰'
+  },
+  {
+    id: 'commitment',
+    title: 'Skin in the Game',
+    description: '"In-Co" Partners—International and Community partnerships that invest in our kids. When we educate the family, we strengthen the student. District 4 will no longer be an afterthought.',
+    icon: '📢'
   }
 ]
 </script>
@@ -69,7 +68,7 @@ const positions: PlatformPosition[] = [
 
       <!-- Section subheading -->
       <p class="text-center text-lg text-teal-700 mb-12 max-w-2xl mx-auto">
-        Here's where I stand on the issues that matter most to Houston County.
+        The District 4 Blueprint: Knowledge is Power
       </p>
 
       <!-- Card grid -->
@@ -91,7 +90,7 @@ const positions: PlatformPosition[] = [
       <!-- Donate CTA after platform cards -->
       <div class="mt-12 text-center">
         <p class="text-lg text-gray-700 mb-6">
-          Want to support Xzandria's platform for Houston County?
+          Want to support Xzandria's platform for District 4?
         </p>
         <DonateButton
           variant="secondary"
