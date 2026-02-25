@@ -57,7 +57,7 @@ Plans:
 4. Photo gallery displays campaign photos with lightbox modal and all images include alt text
 5. Donate CTA appears in hero and at least 2 additional locations, linking to external platform with transparent options
 
-**Plans**: 6 plans in 4 waves
+**Plans**: 7 plans in 4 waves
 
 Plans:
 - [x] 02-01-PLAN.md — Hero section with candidate photo, tagline, and primary donate CTA (Wave 1) ✅ Completed 2026-02-24
@@ -66,6 +66,7 @@ Plans:
 - [x] 02-04-PLAN.md — Campaign members and Endorsements sections (Wave 3) ✅ Completed 2026-02-24
 - [x] 02-06-PLAN.md — Contact section with social media and footer integration (Wave 3) ✅ Completed 2026-02-24
 - [x] 02-05-PLAN.md — Donation CTA placement, brand colors, WCAG 2.1 AA verification (Wave 4) ✅ Completed 2026-02-24
+- [ ] 02-07-PLAN.md — UAT gap closure: fix doubled hero photo and nav cursor hover (Wave 1) 🔄 Gap closure
 
 ### Phase 3: Performance & SEO
 
@@ -96,7 +97,7 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Compliance | 5/5 | Complete | 2026-02-24 |
-| 2. Content & Engagement | 6/6 | Complete | 2026-02-24 |
+| 2. Content & Engagement | 6/7 | Gap closure | 2026-02-24 |
 | 3. Performance & SEO | 0/3 | Not started | - |
 
-**Overall Progress**: 11/14 plans complete (79%)
+**Overall Progress**: 11/15 plans complete (73%)
