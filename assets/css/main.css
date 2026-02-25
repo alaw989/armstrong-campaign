@@ -5,6 +5,9 @@
  * Tailwind v4 CSS-first configuration
  */
 
+/* Font loading optimization - use font-display: swap to prevent layout shift */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
 /* Custom theme configuration for Tailwind v4 */
