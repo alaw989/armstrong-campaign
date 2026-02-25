@@ -20,12 +20,12 @@ const heroContent = computed(() => (config as any).hero || {
   name: 'Xzandria Armstrong',
   title: 'For Houston County, GA',
   tagline: 'Leadership. Integrity. Progress.',
-  photo: '/images/candidate-portrait.jpg',
+  photo: '/images/candidate-portrait.svg',
   photoAlt: 'Xzandria Armstrong, candidate for Houston County'
 })
 
 // Use placeholder if no actual photo exists yet
-const showPlaceholder = ref(true)
+const showPlaceholder = ref(false)
 const imageError = ref(false)
 
 const handleImageLoad = () => {
