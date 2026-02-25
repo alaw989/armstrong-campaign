@@ -28,18 +28,18 @@ Requirements for initial launch by March 7. Each maps to roadmap phases.
 
 ### Engagement & Conversion
 
-- [ ] **ENG-01**: Donate button/CTA appears prominently in hero and at least 2 additional locations on page
-- [ ] **ENG-02**: Donate CTA links to external donation platform (ActBlue, Anedot, or similar) via secure link
-- [ ] **ENG-03**: Contact section displays email, phone, and mailing address for volunteer inquiries
-- [ ] **ENG-04**: Social media links (Facebook, Instagram, etc.) appear in footer and/or contact section
+- [x] **ENG-01**: Donate button/CTA appears prominently in hero and at least 2 additional locations on page
+- [x] **ENG-02**: Donate CTA links to external donation platform (ActBlue, Anedot, or similar) via secure link
+- [x] **ENG-03**: Contact section displays email, phone, and mailing address for volunteer inquiries
+- [x] **ENG-04**: Social media links (Facebook, Instagram, etc.) appear in footer and/or contact section
 
 ### Visual Design
 
-- [ ] **VIS-01**: Site uses campaign color palette (teals/golds from provided reference)
-- [ ] **VIS-02**: Typography uses clean, modern fonts with excellent readability
-- [ ] **VIS-03**: Design conveys professionalism, trustworthiness, and elegance appropriate for political campaign
-- [ ] **VIS-04**: All images include alt text for accessibility
-- [ ] **VIS-05**: Color contrast ratios meet WCAG 2.1 AA standards (minimum 4.5:1 for body text)
+- [x] **VIS-01**: Site uses campaign color palette (teals/golds from provided reference)
+- [x] **VIS-02**: Typography uses clean, modern fonts with excellent readability
+- [x] **VIS-03**: Design conveys professionalism, trustworthiness, and elegance appropriate for political campaign
+- [x] **VIS-04**: All images include alt text for accessibility
+- [x] **VIS-05**: Color contrast ratios meet WCAG 2.1 AA standards (minimum 4.5:1 for body text)
 
 ### Performance & SEO
 
@@ -50,9 +50,9 @@ Requirements for initial launch by March 7. Each maps to roadmap phases.
 
 ### Legal & Compliance
 
-- [ ] **LEGAL-01**: Footer includes "Paid for by [Committee Name]" disclaimer above the fold on every page
-- [ ] **LEGAL-02**: Donation links clearly indicate one-time vs recurring options with no pre-checked boxes
-- [ ] **LEGAL-03**: No deceptive dark patterns in donation flow (transparent fees, easy cancellation link)
+- [x] **LEGAL-01**: Footer includes "Paid for by [Committee Name]" disclaimer above the fold on every page
+- [x] **LEGAL-02**: Donation links clearly indicate one-time vs recurring options with no pre-checked boxes
+- [x] **LEGAL-03**: No deceptive dark patterns in donation flow (transparent fees, easy cancellation link)
 
 ## v2 Requirements
 
@@ -91,35 +91,35 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FND-01 | Phase 1 | Pending |
-| FND-02 | Phase 1 | Pending |
-| FND-03 | Phase 1 | Pending |
+| FND-01 | Phase 1 | Complete |
+| FND-02 | Phase 1 | Complete |
+| FND-03 | Phase 1 | Complete |
 | FND-04 | Phase 2 | Pending |
-| FND-05 | Phase 1 | Pending |
-| FND-06 | Phase 1 | Pending |
-| FND-07 | Phase 1 | Pending |
-| CONT-01 | Phase 2 | Pending |
-| CONT-02 | Phase 2 | Pending |
-| CONT-03 | Phase 2 | Pending |
-| CONT-04 | Phase 2 | Pending |
-| CONT-05 | Phase 2 | Pending |
-| CONT-06 | Phase 2 | Pending |
-| ENG-01 | Phase 2 | Pending |
-| ENG-02 | Phase 2 | Pending |
-| ENG-03 | Phase 2 | Pending |
-| ENG-04 | Phase 2 | Pending |
-| VIS-01 | Phase 2 | Pending |
-| VIS-02 | Phase 2 | Pending |
-| VIS-03 | Phase 2 | Pending |
-| VIS-04 | Phase 2 | Pending |
-| VIS-05 | Phase 1 | Pending |
+| FND-05 | Phase 1 | Complete |
+| FND-06 | Phase 1 | Complete |
+| FND-07 | Phase 1 | Complete |
+| CONT-01 | Phase 2 | Complete |
+| CONT-02 | Phase 2 | Complete |
+| CONT-03 | Phase 2 | Complete |
+| CONT-04 | Phase 2 | Complete |
+| CONT-05 | Phase 2 | Complete |
+| CONT-06 | Phase 2 | Complete |
+| ENG-01 | Phase 2 | Complete |
+| ENG-02 | Phase 2 | Complete |
+| ENG-03 | Phase 2 | Complete |
+| ENG-04 | Phase 2 | Complete |
+| VIS-01 | Phase 2 | Complete |
+| VIS-02 | Phase 2 | Complete |
+| VIS-03 | Phase 2 | Complete |
+| VIS-04 | Phase 2 | Complete |
+| VIS-05 | Phase 1 | Complete |
 | PERF-01 | Phase 3 | Pending |
 | PERF-02 | Phase 3 | Pending |
-| PERF-03 | Phase 1 | Pending |
-| PERF-04 | Phase 1 | Pending |
-| LEGAL-01 | Phase 1 | Pending |
-| LEGAL-02 | Phase 2 | Pending |
-| LEGAL-03 | Phase 2 | Pending |
+| PERF-03 | Phase 1 | Complete |
+| PERF-04 | Phase 1 | Complete |
+| LEGAL-01 | Phase 1 | Complete |
+| LEGAL-02 | Phase 2 | Complete |
+| LEGAL-03 | Phase 2 | Complete |
 
 **Coverage:**
 - v1 requirements: 29 total
@@ -133,4 +133,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-23*
-*Last updated: 2026-02-23 after roadmap creation*
+*Last updated: 2026-02-24 after Phase 2 completion*
