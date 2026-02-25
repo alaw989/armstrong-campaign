@@ -71,12 +71,15 @@ const members: TeamMember[] = [
           class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg hover:border-teal-600 transition-all border border-transparent"
         >
           <!-- Member photo -->
-          <img
+          <NuxtImg
             :src="member.photo"
             :alt="member.alt || `${member.name}, ${member.role}`"
-            class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-gray-200"
+            width="128"
+            height="128"
             loading="lazy"
-          >
+            format="webp"
+            class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-gray-200"
+          />
 
           <!-- Member name -->
           <h3 class="font-semibold text-lg text-teal-900 mb-1">
