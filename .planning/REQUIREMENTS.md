@@ -12,7 +12,7 @@ Requirements for initial launch by March 7. Each maps to roadmap phases.
 - [ ] **FND-01**: Site uses Nuxt 4 with static site generation for optimal performance and deployment
 - [ ] **FND-02**: Site is deployed to DigitalOcean App Platform with automatic HTTPS/SSL
 - [ ] **FND-03**: Site is mobile-responsive and passes WCAG 2.1 Level AA accessibility standards
-- [ ] **FND-04**: All images optimized using @nuxt/image with WebP/AVIF conversion and lazy loading
+- [x] **FND-04**: All images optimized using @nuxt/image with WebP/AVIF conversion and lazy loading
 - [ ] **FND-05**: Sticky navigation bar with smooth-scroll to sections and active section highlighting
 - [ ] **FND-06**: Mobile hamburger menu for navigation on small screens
 - [ ] **FND-07**: FEC and Georgia GTCFC legal disclaimers appear on every page footer
@@ -43,8 +43,8 @@ Requirements for initial launch by March 7. Each maps to roadmap phases.
 
 ### Performance & SEO
 
-- [ ] **PERF-01**: Site achieves Core Web Vitals passing scores (LCP < 2.5s, INP < 200ms, CLS < 0.1)
-- [ ] **PERF-02**: Site loads in under 3 seconds on 4G mobile connection
+- [x] **PERF-01**: Site achieves Core Web Vitals passing scores (LCP < 2.5s, INP < 200ms, CLS < 0.1)
+- [x] **PERF-02**: Site loads in under 3 seconds on 4G mobile connection
 - [ ] **PERF-03**: All pages include proper meta tags for SEO (title, description, Open Graph)
 - [ ] **PERF-04**: Site includes sitemap.xml and robots.txt for search engine discovery
 
@@ -94,7 +94,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FND-01 | Phase 1 | Complete |
 | FND-02 | Phase 1 | Complete |
 | FND-03 | Phase 1 | Complete |
-| FND-04 | Phase 2 | Pending |
+| FND-04 | Phase 2 | Complete |
 | FND-05 | Phase 1 | Complete |
 | FND-06 | Phase 1 | Complete |
 | FND-07 | Phase 1 | Complete |
@@ -113,8 +113,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | VIS-03 | Phase 2 | Complete |
 | VIS-04 | Phase 2 | Complete |
 | VIS-05 | Phase 1 | Complete |
-| PERF-01 | Phase 3 | Pending |
-| PERF-02 | Phase 3 | Pending |
+| PERF-01 | Phase 3 | Complete |
+| PERF-02 | Phase 3 | Complete |
 | PERF-03 | Phase 1 | Complete |
 | PERF-04 | Phase 1 | Complete |
 | LEGAL-01 | Phase 1 | Complete |
