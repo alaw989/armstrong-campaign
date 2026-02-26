@@ -3,11 +3,11 @@
  * HeroSection Component
  *
  * Main hero section displaying candidate information and CTAs.
- * Follows diijondacosta.com pattern with split layout.
  *
  * Features:
  * - Full-width hero with min-h-screen
  * - Split layout: content left (desktop), photo right (desktop)
+ * - Auto-rotating photo carousel with smooth fade transitions
  * - Mobile: photo first, content second
  * - Prominent donate CTA with secondary volunteer option
  */
@@ -20,11 +20,54 @@ const heroContent = computed(() => (config as any).hero || {
   name: 'Xzandria Armstrong',
   title: 'For Houston County, GA',
   tagline: 'Leadership. Integrity. Progress.',
-  photo: '/images/candidate-portrait.svg',
+  photo: '/images/candidate-portrait.jpg',
   photoAlt: 'Xzandria Armstrong, candidate for Houston County'
 })
 
-// Use placeholder if no actual photo exists yet
+// Get photos array or fall back to single photo
+const photos = computed(() => {
+  if (heroContent.value.photos && Array.isArray(heroContent.value.photos) && heroContent.value.photos.length > 0) {
+    return heroContent.value.photos
+  }
+  return heroContent.value.photo ? [heroContent.value.photo] : []
+})
+
+// Carousel state
+const currentIndex = ref(0)
+const intervalTime = 5000 // 5 seconds per slide
+
+// Auto-rotate carousel
+const nextSlide = () => {
+  currentIndex.value = (currentIndex.value + 1) % photos.value.length
+}
+
+const prevSlide = () => {
+  currentIndex.value = (currentIndex.value - 1 + photos.value.length) % photos.value.length
+}
+
+const goToSlide = (index: number) => {
+  currentIndex.value = index
+}
+
+// Auto-advance on mount
+let interval: ReturnType<typeof setInterval> | null = null
+
+onMounted(() => {
+  if (photos.value.length > 1) {
+    interval = setInterval(nextSlide, intervalTime)
+  }
+})
+
+onUnmounted(() => {
+  if (interval) {
+    clearInterval(interval)
+  }
+})
+
+// Current photo for display
+const currentPhoto = computed(() => photos.value[currentIndex.value] || '')
+
+// Placeholder handling
 const showPlaceholder = ref(false)
 const imageError = ref(false)
 
@@ -79,7 +122,7 @@ const handleImageError = () => {
               text="Donate Now"
             />
 
-            <!-- Secondary volunteer button (placeholder link) -->
+            <!-- Secondary volunteer button -->
             <DonateButton
               variant="outline"
               size="large"
@@ -88,33 +131,42 @@ const handleImageError = () => {
           </div>
         </div>
 
-        <!-- Right column: Candidate photo (order-1 on mobile, order-2 on desktop) -->
+        <!-- Right column: Photo carousel (order-1 on mobile, order-2 on desktop) -->
         <div class="order-1 md:order-2 flex justify-center">
           <div class="relative">
             <!-- Decorative background shape -->
             <div class="absolute inset-0 bg-gradient-to-br from-teal-200 to-yellow-200 rounded-2xl transform rotate-3 opacity-50" />
 
-            <!-- Candidate photo -->
+            <!-- Photo carousel -->
             <div class="relative">
-              <NuxtImg
-                :src="heroContent.photo"
-                :alt="heroContent.photoAlt"
-                :width="800"
-                :height="1067"
-                loading="eager"
-                fetchpriority="high"
-                preset="hero"
-                format="webp"
-                class="rounded-2xl shadow-2xl max-w-xs md:max-w-md lg:max-w-lg w-full h-auto object-cover"
-                :class="{ 'hidden': imageError }"
-                @load="handleImageLoad"
-                @error="handleImageError"
-              />
+              <!-- Transition container -->
+              <div class="relative rounded-2xl shadow-2xl max-w-xs md:max-w-md lg:max-w-lg w-full overflow-hidden">
+                <Transition
+                  :name="'carousel'"
+                  mode="out-in"
+                >
+                  <NuxtImg
+                    :key="currentPhoto"
+                    :src="currentPhoto"
+                    :alt="heroContent.photoAlt"
+                    :width="800"
+                    :height="1067"
+                    loading="eager"
+                    fetchpriority="high"
+                    preset="hero"
+                    format="webp"
+                    class="w-full h-auto object-cover carousel-image"
+                    :class="{ 'hidden': imageError }"
+                    @load="handleImageLoad"
+                    @error="handleImageError"
+                  />
+                </Transition>
+              </div>
 
               <!-- Placeholder when image not available -->
               <div
                 v-if="imageError || showPlaceholder"
-                class="rounded-2xl shadow-2xl max-w-xs md:max-w-md lg:max-w-lg w-full aspect-[3/4] bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center"
+                class="rounded-2xl shadow-2xl max-w-xs md:max-w-md lg:max-w-lg w-full aspect-[3/4] bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center absolute inset-0"
               >
                 <div class="text-center p-8">
                   <svg
@@ -129,6 +181,21 @@ const handleImageError = () => {
                   <p class="text-sm text-teal-600">Image coming soon</p>
                 </div>
               </div>
+
+              <!-- Carousel indicators (only show if multiple photos) -->
+              <div
+                v-if="photos.length > 1"
+                class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2"
+              >
+                <button
+                  v-for="(_, index) in photos"
+                  :key="index"
+                  @click="goToSlide(index)"
+                  class="w-2 h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal-800"
+                  :class="index === currentIndex ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/75'"
+                  :aria-label="`Go to slide ${index + 1}`"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -141,5 +208,24 @@ const handleImageError = () => {
 /* Ensure smooth scrolling when navigating to hero section */
 #hero {
   scroll-margin-top: 80px;
+}
+
+/* Carousel fade transition */
+.carousel-enter-active,
+.carousel-leave-active {
+  transition: opacity 800ms ease-in-out;
+}
+
+.carousel-enter-from {
+  opacity: 0;
+}
+
+.carousel-leave-to {
+  opacity: 0;
+}
+
+/* Image aspect ratio container */
+.carousel-image {
+  aspect-ratio: 3 / 4;
 }
 </style>

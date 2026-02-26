@@ -48,7 +48,12 @@ export default defineAppConfig({
     name: 'Xzandria Armstrong',
     title: 'For Houston County, GA',
     tagline: 'Leadership. Integrity. Progress.',
-    photo: '/images/candidate-portrait.jpg',
+    photos: [
+      '/images/hero/hero-1.jpg',
+      '/images/hero/hero-2.jpg',
+      '/images/hero/hero-3.jpg',
+      '/images/hero/hero-4.jpg'
+    ],
     photoAlt: 'Xzandria Armstrong, candidate for Houston County'
   },
 
