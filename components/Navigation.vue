@@ -99,7 +99,7 @@ onBeforeUnmount(() => {
 
 <template>
   <header
-    class="sticky top-0 z-50 transition-all duration-300"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full"
     :class="{
       'shadow-lg backdrop-blur-md bg-white/90': isScrolled,
       'bg-white': !isScrolled

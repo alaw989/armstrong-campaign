@@ -17,3 +17,10 @@ useHead({
   ]
 })
 </script>
+
+<style>
+/* Add padding-top to account for fixed navbar (~80px height) */
+body {
+  padding-top: 80px;
+}
+</style>
