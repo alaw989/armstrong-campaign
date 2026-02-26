@@ -121,9 +121,7 @@ onBeforeUnmount(() => {
             <NuxtImg
               src="/images/campaign.jpg"
               alt="Armstrong for Houston"
-              width="200"
-              height="50"
-              class="h-10 w-auto"
+              class="h-14 w-auto object-contain"
             />
           </NuxtLink>
         </div>
