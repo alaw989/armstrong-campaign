@@ -115,9 +115,16 @@ onBeforeUnmount(() => {
           <NuxtLink
             to="#hero"
             @click="scrollToSection('hero')"
-            class="text-xl font-bold text-gray-900 hover:text-gray-700 transition-colors"
+            class="block hover:opacity-90 transition-opacity"
+            aria-label="Armstrong for Houston - Home"
           >
-            Armstrong for Houston
+            <NuxtImg
+              src="/images/campaign.jpg"
+              alt="Armstrong for Houston"
+              width="200"
+              height="50"
+              class="h-10 w-auto"
+            />
           </NuxtLink>
         </div>
 
