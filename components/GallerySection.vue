@@ -25,12 +25,31 @@ interface GalleryPhoto {
 // Reactive state
 const lightboxVisible = ref(false)
 const currentPhotoIndex = ref(0)
+const visibleCount = ref(24) // Show 24 images initially
+const increment = 24 // Load 24 more each time
 
 // Photo data from composable
-const photos = useGalleryImages()
+const allPhotos = useGalleryImages()
+
+// Paginated photos - show only visibleCount at a time
+const photos = computed(() => allPhotos.slice(0, visibleCount.value))
+
+// Check if there are more photos to load
+const hasMorePhotos = computed(() => visibleCount.value < allPhotos.length)
 
 // Check if gallery has photos
-const hasPhotos = computed(() => photos.length > 0)
+const hasPhotos = computed(() => allPhotos.length > 0)
+
+// Load more photos
+const loadMore = () => {
+  visibleCount.value = Math.min(visibleCount.value + increment, allPhotos.length)
+}
+
+// Reset to show fewer photos
+const showLess = () => {
+  visibleCount.value = increment
+}
+
 
 // Open lightbox at specific photo index
 const openLightbox = (index: number) => {
@@ -52,14 +71,14 @@ const previousPhoto = () => {
 
 // Navigate to next photo
 const nextPhoto = () => {
-  if (currentPhotoIndex.value < photos.length - 1) {
+  if (currentPhotoIndex.value < allPhotos.length - 1) {
     currentPhotoIndex.value++
   }
 }
 
-// Prepare images for lightbox
+// Prepare images for lightbox (use all photos, not just visible)
 const lightboxImages = computed(() => {
-  return photos.map(photo => ({
+  return allPhotos.map(photo => ({
     src: photo.full,
     alt: photo.alt,
   }))
@@ -101,11 +120,14 @@ const lightboxImages = computed(() => {
         </p>
       </div>
 
-      <!-- Photo Grid -->
-      <div
-        v-else
-        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-      >
+      <template v-else>
+        <!-- Photo Count -->
+        <div class="text-center text-gray-500 mb-6">
+          Showing {{ photos.length }} of {{ allPhotos.length }} photos
+        </div>
+
+        <!-- Photo Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
         <button
           v-for="(photo, index) in photos"
           :key="photo.id"
@@ -121,7 +143,32 @@ const lightboxImages = computed(() => {
             class="w-full h-full object-cover"
           />
         </button>
-      </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center">
+          <button
+            v-if="hasMorePhotos"
+            @click="loadMore"
+            class="inline-flex items-center justify-center px-8 py-3 bg-teal-800 text-white font-semibold rounded-lg hover:bg-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-400 focus:ring-offset-2 transition-all duration-200 hover:scale-105"
+          >
+            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Load More Photos
+          </button>
+          <button
+            v-else-if="photos.length > increment"
+            @click="showLess"
+            class="inline-flex items-center justify-center px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300 focus:ring-offset-2 transition-all duration-200"
+          >
+            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+            </svg>
+            Show Less
+          </button>
+        </div>
+      </template>
 
       <!-- Lightbox -->
       <GalleryLightbox
