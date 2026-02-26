@@ -31,6 +31,7 @@ useHead({
       id="main-content"
       class="flex-grow"
       role="main"
+      style="margin-top: 128px;"
     >
       <slot />
     </main>

@@ -99,7 +99,7 @@ onBeforeUnmount(() => {
 
 <template>
   <header
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full !m-0"
     :class="{
       'shadow-lg backdrop-blur-md bg-white/90': isScrolled,
       'bg-white': !isScrolled
@@ -107,7 +107,7 @@ onBeforeUnmount(() => {
   >
     <nav
       aria-label="Main navigation"
-      class="container mx-auto px-4 py-4"
+      class="container mx-auto px-4 py-3 min-h-[128px] flex items-center"
     >
       <div class="flex items-center justify-between">
         <!-- Logo/Campaign Name -->
@@ -121,7 +121,7 @@ onBeforeUnmount(() => {
             <NuxtImg
               src="/images/campaign.jpg"
               alt="Armstrong for Houston"
-              class="h-14 w-auto object-contain"
+              class="h-24 w-auto object-contain"
             />
           </NuxtLink>
         </div>
