@@ -26,9 +26,8 @@ interface GalleryPhoto {
 const lightboxVisible = ref(false)
 const currentPhotoIndex = ref(0)
 
-// Photo data - placeholder until actual campaign photos are provided
-// TODO: Replace with actual campaign photos
-const photos: GalleryPhoto[] = []
+// Photo data from composable
+const photos = useGalleryImages()
 
 // Check if gallery has photos
 const hasPhotos = computed(() => photos.length > 0)
