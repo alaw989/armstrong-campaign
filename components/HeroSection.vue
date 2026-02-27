@@ -145,6 +145,17 @@ const handleImageError = () => {
             <!-- Decorative background shape -->
             <div class="absolute inset-0 bg-gradient-to-br from-teal-200 to-yellow-200 rounded-2xl transform rotate-3 opacity-50" />
 
+            <!-- Preload all carousel images for static generation -->
+            <div class="hidden">
+              <img
+                v-for="photo in photos"
+                :key="`preload-${photo}`"
+                :src="photo"
+                alt=""
+                loading="eager"
+              >
+            </div>
+
             <!-- Photo carousel -->
             <div class="relative">
               <!-- Transition container -->
@@ -161,8 +172,7 @@ const handleImageError = () => {
                     :height="1067"
                     loading="eager"
                     fetchpriority="high"
-                    preset="hero"
-                    format="webp"
+                    format="jpg"
                     class="w-full h-auto object-cover carousel-image"
                     :class="{ 'hidden': imageError }"
                     @load="handleImageLoad"
