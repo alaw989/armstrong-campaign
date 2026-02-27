@@ -103,95 +103,95 @@ onBeforeUnmount(() => {
   >
     <nav
       aria-label="Main navigation"
-      class="container mx-auto px-4 py-3 min-h-[128px] flex items-center"
+      class="container mx-auto px-4 py-3 min-h-[128px] flex items-center justify-center gap-6 md:gap-8"
     >
-      <div class="flex items-center justify-between">
-        <!-- Logo/Campaign Name -->
-        <div class="flex-shrink-0">
-          <NuxtLink
-            to="#hero"
-            @click="scrollToSection('hero')"
-            class="block hover:opacity-90 transition-opacity"
-            aria-label="Armstrong for Houston - Home"
-          >
-            <NuxtImg
-              src="/images/campaign.jpg"
-              alt="Armstrong for Houston"
-              class="h-24 w-auto object-contain"
-            />
-          </NuxtLink>
-        </div>
-
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
-          <button
-            v-for="section in sections"
-            :key="section.id"
-            @click="scrollToSection(section.id)"
-            class="text-sm font-medium transition-colors relative py-2 cursor-pointer"
-            :class="{
-              'text-gray-900': activeSection === section.id,
-              'text-gray-600 hover:text-gray-900': activeSection !== section.id
-            }"
-          >
-            {{ section.name }}
-            <!-- Active indicator underline -->
-            <span
-              v-if="activeSection === section.id"
-              class="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900"
-            />
-          </button>
-
-          <!-- Donate CTA Button (desktop) -->
-          <DonateButton
-            size="small"
-            variant="nav"
-            text="Donate"
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <NuxtLink
+          to="#hero"
+          @click="scrollToSection('hero')"
+          class="block hover:opacity-90 transition-opacity"
+          aria-label="Armstrong for Houston - Home"
+        >
+          <NuxtImg
+            src="/images/campaign.jpg"
+            alt="Armstrong for Houston"
+            class="h-20 md:h-24 w-auto object-contain"
           />
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden">
-          <button
-            type="button"
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
-            aria-label="Toggle navigation menu"
-            :aria-expanded="isMobileMenuOpen"
-            @click="toggleMobileMenu"
-          >
-            <svg
-              class="h-6 w-6"
-              :class="{ 'hidden': isMobileMenuOpen }"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <svg
-              class="h-6 w-6"
-              :class="{ 'hidden': !isMobileMenuOpen }"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+        </NuxtLink>
       </div>
 
-      <!-- Mobile Menu Panel -->
-      <div
-        v-show="isMobileMenuOpen"
-        class="md:hidden mt-4 pb-4 space-y-2"
-      >
+      <!-- Desktop Navigation Links -->
+      <div class="hidden md:flex items-center gap-6">
+        <button
+          v-for="section in sections"
+          :key="section.id"
+          @click="scrollToSection(section.id)"
+          class="text-sm font-medium transition-colors relative py-2 cursor-pointer"
+          :class="{
+            'text-gray-900 font-semibold': activeSection === section.id,
+            'text-gray-600 hover:text-gray-900': activeSection !== section.id
+          }"
+        >
+          {{ section.name }}
+          <!-- Active indicator underline -->
+          <span
+            v-if="activeSection === section.id"
+            class="absolute bottom-0 left-0 right-0 h-0.5 bg-teal-700"
+          />
+        </button>
+
+        <!-- Donate CTA Button -->
+        <DonateButton
+          size="small"
+          variant="primary"
+          text="Donate"
+        />
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button
+          type="button"
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+          aria-label="Toggle navigation menu"
+          :aria-expanded="isMobileMenuOpen"
+          @click="toggleMobileMenu"
+        >
+          <svg
+            class="h-6 w-6"
+            :class="{ 'hidden': isMobileMenuOpen }"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <svg
+            class="h-6 w-6"
+            :class="{ 'hidden': !isMobileMenuOpen }"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Panel -->
+    <div
+      v-show="isMobileMenuOpen"
+      class="md:hidden absolute left-0 right-0 bg-white border-t border-gray-200 shadow-lg"
+    >
+      <div class="container mx-auto px-4 py-4 space-y-2">
         <button
           v-for="section in sections"
           :key="section.id"
@@ -215,6 +215,6 @@ onBeforeUnmount(() => {
           />
         </div>
       </div>
-    </nav>
+    </div>
   </header>
 </template>
