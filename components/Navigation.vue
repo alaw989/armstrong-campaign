@@ -103,7 +103,7 @@ onBeforeUnmount(() => {
   >
     <nav
       aria-label="Main navigation"
-      class="container mx-auto max-w-7xl px-4 py-3 min-h-[128px] flex items-center justify-center gap-6 md:gap-8"
+      class="container mx-auto px-4 py-3 min-h-[128px] flex items-center justify-center gap-6 md:gap-8"
     >
       <!-- Logo -->
       <div class="flex-shrink-0">
