@@ -164,16 +164,12 @@ const handleImageError = () => {
                   :name="'carousel'"
                   mode="out-in"
                 >
-                  <NuxtImg
+                  <img
                     :key="currentPhoto"
                     :src="currentPhoto"
                     :alt="heroContent.photoAlt"
-                    :width="800"
-                    :height="1067"
                     loading="eager"
-                    fetchpriority="high"
-                    format="jpg"
-                    class="w-full h-auto object-cover carousel-image"
+                    class="w-full h-auto object-cover carousel-image aspect-[3/4]"
                     :class="{ 'hidden': imageError }"
                     @load="handleImageLoad"
                     @error="handleImageError"
