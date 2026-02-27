@@ -101,10 +101,7 @@ onBeforeUnmount(() => {
   <header
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full !m-0 shadow-sm bg-white/95 backdrop-blur-sm border-b border-gray-100"
   >
-    <nav
-      aria-label="Main navigation"
-      class="container mx-auto px-4 py-3 min-h-[128px] flex items-center justify-center gap-6 md:gap-8"
-    >
+    <div class="container mx-auto px-4 py-3 min-h-[128px] flex items-center justify-between gap-6 md:gap-8">
       <!-- Logo -->
       <div class="flex-shrink-0">
         <NuxtLink
@@ -184,7 +181,7 @@ onBeforeUnmount(() => {
           </svg>
         </button>
       </div>
-    </nav>
+    </div>
 
     <!-- Mobile Menu Panel -->
     <div
