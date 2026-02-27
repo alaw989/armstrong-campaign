@@ -21,10 +21,8 @@ useHead({
       Skip to main content
     </a>
 
-    <!-- Header with Navigation -->
-    <header>
-      <Navigation />
-    </header>
+    <!-- Navigation -->
+    <Navigation />
 
     <!-- Main content area -->
     <main

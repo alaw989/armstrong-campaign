@@ -99,11 +99,7 @@ onBeforeUnmount(() => {
 
 <template>
   <header
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full !m-0"
-    :class="{
-      'shadow-lg backdrop-blur-md bg-white/90': isScrolled,
-      'bg-white': !isScrolled
-    }"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full !m-0 shadow-sm bg-white/95 backdrop-blur-sm"
   >
     <nav
       aria-label="Main navigation"
