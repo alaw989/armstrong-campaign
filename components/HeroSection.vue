@@ -83,9 +83,17 @@ const handleImageError = () => {
 <template>
   <section
     id="hero"
-    class="min-h-screen bg-gradient-to-br from-white to-teal-50 py-12 md:py-20 scroll-mt-20"
+    class="flex items-center bg-gradient-to-br from-teal-50 via-white to-yellow-50 relative overflow-hidden"
+    style="height: calc(100vh - 128px); min-height: 600px;"
   >
-    <div class="container mx-auto px-4">
+    <!-- Background decorative elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-10 right-10 w-64 h-64 bg-teal-200/20 rounded-full blur-3xl" />
+      <div class="absolute bottom-10 left-10 w-96 h-96 bg-yellow-200/20 rounded-full blur-3xl" />
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-teal-100/10 to-transparent rounded-full" />
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
       <!-- Grid layout: split on desktop -->
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <!-- Left column: Content (order-2 on mobile, order-1 on desktop) -->
@@ -207,9 +215,8 @@ const handleImageError = () => {
 <style scoped>
 /* Ensure smooth scrolling when navigating to hero section */
 #hero {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 128px;
 }
-
 /* Carousel fade transition */
 .carousel-enter-active,
 .carousel-leave-active {
