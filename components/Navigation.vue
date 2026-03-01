@@ -100,13 +100,13 @@ onBeforeUnmount(() => {
 
 <template>
   <header
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full !m-0"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full"
     :class="{
       'bg-transparent': !isScrolled,
       'bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100': isScrolled
     }"
   >
-    <div class="container mx-auto px-4 flex items-center justify-between gap-6 md:gap-8 transition-all duration-300"
+    <div class="flex items-center justify-between gap-2 md:gap-8 transition-all duration-300 w-full px-4 md:px-4"
       :class="{
         'py-4 min-h-[140px]': !isScrolled,
         'py-2 min-h-[70px]': isScrolled
@@ -206,24 +206,11 @@ onBeforeUnmount(() => {
     <!-- Mobile Menu Panel -->
     <div
       v-show="isMobileMenuOpen"
-      class="md:hidden absolute left-0 right-0 bg-white border-t border-gray-200 shadow-lg"
+      class="md:hidden absolute left-0 right-0 w-full bg-white border-t border-gray-200 shadow-lg"
     >
-      <div class="container mx-auto px-4 py-4 space-y-2">
-        <button
-          v-for="section in sections"
-          :key="section.id"
-          @click="scrollToSection(section.id)"
-          class="block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors cursor-pointer"
-          :class="{
-            'bg-gray-100 text-gray-900': activeSection === section.id,
-            'text-gray-700 hover:bg-gray-50 hover:text-gray-900': activeSection !== section.id
-          }"
-        >
-          {{ section.name }}
-        </button>
-
-        <!-- Donate CTA (mobile) -->
-        <div class="pt-2">
+      <div class="px-4 py-4 space-y-2">
+        <!-- Donate CTA (mobile) - moved to top for prominence -->
+        <div class="pb-3 border-b border-gray-100">
           <DonateButton
             size="medium"
             variant="primary"
@@ -231,6 +218,19 @@ onBeforeUnmount(() => {
             class="w-full"
           />
         </div>
+
+        <button
+          v-for="section in sections"
+          :key="section.id"
+          @click="scrollToSection(section.id)"
+          class="block w-full text-left px-3 py-3 rounded-md text-base font-medium transition-colors cursor-pointer"
+          :class="{
+            'bg-gray-100 text-gray-900': activeSection === section.id,
+            'text-gray-700 hover:bg-gray-50 hover:text-gray-900': activeSection !== section.id
+          }"
+        >
+          {{ section.name }}
+        </button>
       </div>
     </div>
   </header>

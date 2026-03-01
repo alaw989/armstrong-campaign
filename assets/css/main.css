@@ -80,3 +80,50 @@ html {
 [id] {
   scroll-margin-top: 80px;
 }
+
+/* ==============================
+   MOBILE FIXES - Keep section padding!
+   ============================== */
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll - but DON'T remove padding */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+  }
+
+  /* Fix images that cause overflow */
+  img {
+    max-width: 100vw !important;
+  }
+
+  /* Remove min-w-full from images */
+  [class*="min-w-full"] {
+    min-width: 0 !important;
+  }
+
+  /* Platform carousel - contain overflow in its container */
+  #platform > div > div:last-child {
+    overflow-x: hidden !important;
+  }
+
+  /* Remove negative margins from carousel */
+  [class*="carousel-card"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Hide decorative circles that extend beyond viewport */
+  [class*="-bottom-4"][class*="absolute"],
+  [class*="-top-4"][class*="absolute"],
+  [class*="-right-4"][class*="absolute"],
+  [class*="-left-4"][class*="absolute"] {
+    display: none !important;
+  }
+
+  /* Large decorative circles */
+  [class*="w-[600px]"],
+  [class*="w-[500px"] {
+    width: 200px !important;
+    height: 200px !important;
+  }
+}

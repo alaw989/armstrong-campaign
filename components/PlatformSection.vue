@@ -209,18 +209,18 @@ const positions: PlatformPosition[] = [
           <span class="relative z-10">
             "Our district can't be the best unless every child can read. Educating the public is the key to our democracy and the loudest voice against violence."
           </span>
-          <!-- Large decorative quote mark -->
-          <span class="absolute top-0 left-0 text-9xl text-teal-500/10 -translate-x-2 -translate-y-4 font-serif">"</span>
+          <!-- Large decorative quote mark - hidden from assistive tech -->
+          <span class="absolute top-0 left-0 text-9xl text-teal-500/10 -translate-x-2 -translate-y-4 font-serif" aria-hidden="true">"</span>
         </p>
       </div>
 
       <!-- Carousel with navigation buttons -->
       <div class="relative mb-8">
-        <!-- Previous button (hidden on mobile, shown on desktop) -->
+        <!-- Previous button (visible on all screen sizes) -->
         <button
           @click="previousCard"
           :disabled="activeIndex === 0"
-          class="nav-button hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 items-center justify-center rounded-full bg-slate-800/90 backdrop-blur-sm border border-slate-600/50 text-teal-400 hover:bg-teal-500 hover:text-white hover:scale-110 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300 shadow-lg"
+          class="nav-button absolute left-2 md:left-0 top-1/2 -translate-y-1/2 -translate-x-0 md:-translate-x-4 z-20 w-14 h-14 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-slate-800/90 backdrop-blur-sm border border-slate-600/50 text-teal-400 hover:bg-teal-500 hover:text-white hover:scale-110 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300 shadow-lg"
           :class="{ 'opacity-0': activeIndex === 0 }"
           aria-label="Previous platform position"
         >
@@ -229,11 +229,11 @@ const positions: PlatformPosition[] = [
           </svg>
         </button>
 
-        <!-- Next button (hidden on mobile, shown on desktop) -->
+        <!-- Next button (visible on all screen sizes) -->
         <button
           @click="nextCard"
           :disabled="activeIndex === totalCards - 1"
-          class="nav-button hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 items-center justify-center rounded-full bg-slate-800/90 backdrop-blur-sm border border-slate-600/50 text-teal-400 hover:bg-teal-500 hover:text-white hover:scale-110 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300 shadow-lg"
+          class="nav-button absolute right-2 md:right-0 top-1/2 -translate-y-1/2 translate-x-0 md:translate-x-4 z-20 w-14 h-14 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-slate-800/90 backdrop-blur-sm border border-slate-600/50 text-teal-400 hover:bg-teal-500 hover:text-white hover:scale-110 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300 shadow-lg"
           :class="{ 'opacity-0': activeIndex === totalCards - 1 }"
           aria-label="Next platform position"
         >
@@ -309,8 +309,8 @@ const positions: PlatformPosition[] = [
             role="tab"
             class="dot-indicator transition-all duration-300 rounded-full"
             :class="activeIndex === index
-              ? 'bg-teal-400 w-8'
-              : 'bg-slate-600 hover:bg-slate-500 w-3'"
+              ? 'bg-teal-400 w-10 h-3 md:w-8'
+              : 'bg-slate-600 hover:bg-slate-500 w-4 h-3 md:w-3'"
           />
           <span class="ml-2 text-sm text-slate-400 font-medium">
             {{ activeIndex + 1 }} / {{ totalCards }}
@@ -418,8 +418,10 @@ const positions: PlatformPosition[] = [
 
 /* Dot indicator */
 .dot-indicator {
-  height: 0.75rem;
+  min-height: 0.75rem;
   cursor: pointer;
+  padding: 0;
+  border: none;
 }
 
 .dot-indicator:focus-visible {

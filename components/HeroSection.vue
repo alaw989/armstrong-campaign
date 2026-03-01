@@ -35,8 +35,8 @@ const backgroundImage = '/images/gallery/IMG_0020.jpeg'
     <img
       :src="backgroundImage"
       alt=""
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto"
-      style="object-fit: cover; margin-top: -200px;"
+      class="absolute inset-0 w-full h-full"
+      style="object-fit: cover;"
     />
 
     <!-- Dark overlay for text readability -->

@@ -29,8 +29,15 @@ interface GalleryPhoto {
 // Reactive state
 const lightboxVisible = ref(false)
 const currentPhotoIndex = ref(0)
-const visibleCount = ref(24) // Show 24 images initially
+const visibleCount = ref(24) // Show 24 images initially on desktop
 const increment = 24 // Load 24 more each time
+
+// Mobile: show fewer photos initially
+onMounted(() => {
+  if (window.innerWidth < 768) {
+    visibleCount.value = 8
+  }
+})
 
 // Photo data from composable
 const allPhotos = useGalleryImages()
@@ -131,7 +138,7 @@ const lightboxImages = computed(() => {
 
       <template v-else>
         <!-- Photo Count -->
-        <div class="text-center text-gray-500 mb-6">
+        <div class="text-center text-gray-500 mb-6 text-sm">
           Showing {{ photos.length }} of {{ allPhotos.length }} photos
         </div>
 
