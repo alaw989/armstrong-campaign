@@ -2,13 +2,12 @@
 /**
  * HeroSection Component
  *
- * Main hero section displaying candidate information and CTAs.
+ * Main hero section with image background and centered content.
  *
  * Features:
- * - Full-width hero with min-h-screen
- * - Split layout: content left (desktop), photo right (desktop)
- * - Auto-rotating photo carousel with smooth fade transitions
- * - Mobile: photo first, content second
+ * - Full-screen image background
+ * - Centered text content
+ * - Dark overlay for readability
  * - Prominent donate CTA with secondary volunteer option
  */
 
@@ -16,204 +15,96 @@ const config = useAppConfig()
 
 // Hero content from config
 const heroContent = computed(() => (config as any).hero || {
-  badge: 'For Houston County',
+  badge: 'District 4',
   name: 'Xzandria Armstrong',
-  title: 'For Houston County, GA',
+  title: 'Houston County Board of Education',
   tagline: 'Leadership. Integrity. Progress.',
-  photo: '/images/candidate-portrait.jpg',
-  photoAlt: 'Xzandria Armstrong, candidate for Houston County'
 })
 
-// Get photos array or fall back to single photo
-const photos = computed(() => {
-  if (heroContent.value.photos && Array.isArray(heroContent.value.photos) && heroContent.value.photos.length > 0) {
-    return heroContent.value.photos
-  }
-  return heroContent.value.photo ? [heroContent.value.photo] : []
-})
-
-// Carousel state
-const currentIndex = ref(0)
-const intervalTime = 5000 // 5 seconds per slide
-
-// Auto-rotate carousel
-const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % photos.value.length
-}
-
-const prevSlide = () => {
-  currentIndex.value = (currentIndex.value - 1 + photos.value.length) % photos.value.length
-}
-
-const goToSlide = (index: number) => {
-  currentIndex.value = index
-}
-
-// Auto-advance on mount
-let interval: ReturnType<typeof setInterval> | null = null
-
-onMounted(() => {
-  if (photos.value.length > 1) {
-    interval = setInterval(nextSlide, intervalTime)
-  }
-})
-
-onUnmounted(() => {
-  if (interval) {
-    clearInterval(interval)
-  }
-})
-
-// Current photo for display
-const currentPhoto = computed(() => photos.value[currentIndex.value] || '')
-
-// Placeholder handling
-const showPlaceholder = ref(false)
-const imageError = ref(false)
-
-const handleImageLoad = () => {
-  showPlaceholder.value = false
-}
-
-const handleImageError = () => {
-  imageError.value = true
-}
+// Background image
+const backgroundImage = '/images/gallery/IMG_0020.jpeg'
 </script>
 
 <template>
   <section
     id="hero"
-    class="flex items-center bg-gradient-to-br from-teal-50 via-white to-yellow-50 relative overflow-hidden"
-    style="height: calc(100vh - 128px); min-height: 600px;"
+    class="relative flex items-center justify-center overflow-hidden bg-black -mt-32"
+    style="height: 100vh; min-height: 600px;"
   >
-    <!-- Background decorative elements -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute top-10 right-10 w-64 h-64 bg-teal-200/20 rounded-full blur-3xl" />
-      <div class="absolute bottom-10 left-10 w-96 h-96 bg-yellow-200/20 rounded-full blur-3xl" />
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-teal-100/10 to-transparent rounded-full" />
+    <!-- Image Background -->
+    <img
+      :src="backgroundImage"
+      alt=""
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto"
+      style="object-fit: cover; margin-top: -200px;"
+    />
+
+    <!-- Dark overlay for text readability -->
+    <div class="absolute inset-0 bg-black/40" />
+
+    <!-- Gradient overlay for depth -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
+
+    <!-- Content - Centered -->
+    <div class="relative z-10 container mx-auto px-4 text-center">
+      <!-- Geographic badge -->
+      <p
+        v-if="heroContent.badge"
+        class="text-teal-300 font-semibold text-sm tracking-widest uppercase mb-6 animate-fade-in"
+      >
+        {{ heroContent.badge }}
+      </p>
+
+      <!-- Candidate name (h1 for SEO) -->
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-6 drop-shadow-2xl">
+        {{ heroContent.name }}
+      </h1>
+
+      <!-- Position title -->
+      <p class="text-2xl md:text-4xl text-teal-200 font-medium mb-6 drop-shadow-lg">
+        {{ heroContent.title }}
+      </p>
+
+      <!-- Tagline/slogan -->
+      <p class="text-xl md:text-2xl text-gray-200 mb-12 max-w-2xl mx-auto drop-shadow">
+        {{ heroContent.tagline }}
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <!-- Primary donate button -->
+        <DonateButton
+          variant="primary"
+          size="large"
+          text="Donate Now"
+        />
+
+        <!-- Secondary volunteer button -->
+        <DonateButton
+          variant="outline"
+          size="large"
+          text="Volunteer"
+          class="border-white text-white hover:bg-white/10"
+        />
+      </div>
     </div>
 
-    <div class="container mx-auto px-4 relative z-10">
-      <!-- Grid layout: split on desktop -->
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <!-- Left column: Content (order-2 on mobile, order-1 on desktop) -->
-        <div class="text-center md:text-left order-2 md:order-1">
-          <!-- Geographic badge -->
-          <p
-            v-if="heroContent.badge"
-            class="text-teal-800 font-semibold text-xs tracking-wider uppercase mb-4"
-          >
-            {{ heroContent.badge }}
-          </p>
-
-          <!-- Candidate name (h1 for SEO) -->
-          <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-            {{ heroContent.name }}
-          </h1>
-
-          <!-- Position title -->
-          <p class="text-2xl md:text-3xl text-teal-700 font-medium mt-2">
-            {{ heroContent.title }}
-          </p>
-
-          <!-- Tagline/slogan -->
-          <p class="text-xl text-gray-600 mt-4 max-w-lg mx-auto md:mx-0">
-            {{ heroContent.tagline }}
-          </p>
-
-          <!-- CTA buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
-            <!-- Primary donate button -->
-            <DonateButton
-              variant="primary"
-              size="large"
-              text="Donate Now"
-            />
-
-            <!-- Secondary volunteer button -->
-            <DonateButton
-              variant="outline"
-              size="large"
-              text="Volunteer"
-            />
-          </div>
-        </div>
-
-        <!-- Right column: Photo carousel (order-1 on mobile, order-2 on desktop) -->
-        <div class="order-1 md:order-2 flex justify-center">
-          <div class="relative">
-            <!-- Decorative background shape -->
-            <div class="absolute inset-0 bg-gradient-to-br from-teal-200 to-yellow-200 rounded-2xl transform rotate-3 opacity-50" />
-
-            <!-- Preload all carousel images for static generation -->
-            <div class="hidden">
-              <img
-                v-for="photo in photos"
-                :key="`preload-${photo}`"
-                :src="photo"
-                alt=""
-                loading="eager"
-              >
-            </div>
-
-            <!-- Photo carousel -->
-            <div class="relative">
-              <!-- Transition container -->
-              <div class="relative rounded-2xl shadow-2xl max-w-xs md:max-w-md lg:max-w-lg w-full overflow-hidden">
-                <Transition
-                  :name="'carousel'"
-                  mode="out-in"
-                >
-                  <img
-                    :key="currentPhoto"
-                    :src="currentPhoto"
-                    :alt="heroContent.photoAlt"
-                    loading="eager"
-                    class="w-full h-auto object-cover carousel-image aspect-[3/4]"
-                    :class="{ 'hidden': imageError }"
-                    @load="handleImageLoad"
-                    @error="handleImageError"
-                  />
-                </Transition>
-              </div>
-
-              <!-- Placeholder when image not available -->
-              <div
-                v-if="imageError || showPlaceholder"
-                class="rounded-2xl shadow-2xl max-w-xs md:max-w-md lg:max-w-lg w-full aspect-[3/4] bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center absolute inset-0"
-              >
-                <div class="text-center p-8">
-                  <svg
-                    class="w-24 h-24 mx-auto text-teal-400"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
-                  <p class="mt-4 text-teal-700 font-medium">Candidate Photo</p>
-                  <p class="text-sm text-teal-600">Image coming soon</p>
-                </div>
-              </div>
-
-              <!-- Carousel indicators (only show if multiple photos) -->
-              <div
-                v-if="photos.length > 1"
-                class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2"
-              >
-                <button
-                  v-for="(_, index) in photos"
-                  :key="index"
-                  @click="goToSlide(index)"
-                  class="w-2 h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal-800"
-                  :class="index === currentIndex ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/75'"
-                  :aria-label="`Go to slide ${index + 1}`"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg
+        class="w-6 h-6 text-white/70"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"
+        />
+      </svg>
     </div>
   </section>
 </template>
@@ -223,22 +114,20 @@ const handleImageError = () => {
 #hero {
   scroll-margin-top: 128px;
 }
-/* Carousel fade transition */
-.carousel-enter-active,
-.carousel-leave-active {
-  transition: opacity 800ms ease-in-out;
+
+/* Fade in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.carousel-enter-from {
-  opacity: 0;
-}
-
-.carousel-leave-to {
-  opacity: 0;
-}
-
-/* Image aspect ratio container */
-.carousel-image {
-  aspect-ratio: 3 / 4;
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
 }
 </style>

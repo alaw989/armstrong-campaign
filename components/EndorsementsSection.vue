@@ -3,9 +3,12 @@
  * EndorsementsSection Component
  *
  * Displays community leader and organization endorsements.
- * Uses blockquote-style cards with semantic HTML.
- * Handles empty state gracefully.
+ * Auto-rotating carousel with fade transitions.
+ * Scroll-triggered fade-in animation.
  */
+
+// Scroll-triggered fade-in animation
+const { target: sectionTarget, isVisible: sectionIsVisible } = useIntersectionObserver()
 
 interface Endorsement {
   id: string
@@ -43,12 +46,69 @@ const endorsements: Endorsement[] = [
     title: 'Retired Teacher, 30 years in Houston County Schools'
   }
 ]
+
+// Carousel state
+const currentIndex = ref(0)
+const autoPlayInterval = ref<number | null>(null)
+const AUTO_PLAY_DELAY = 5000 // 5 seconds
+
+// Computed
+const currentEndorsement = computed(() => endorsements[currentIndex.value])
+
+// Methods
+const goToEndorsement = (index: number) => {
+  currentIndex.value = index
+  resetAutoPlay()
+}
+
+const nextEndorsement = () => {
+  currentIndex.value = (currentIndex.value + 1) % endorsements.length
+  resetAutoPlay()
+}
+
+const previousEndorsement = () => {
+  currentIndex.value = (currentIndex.value - 1 + endorsements.length) % endorsements.length
+  resetAutoPlay()
+}
+
+const startAutoPlay = () => {
+  stopAutoPlay()
+  autoPlayInterval.value = window.setInterval(() => {
+    nextEndorsement()
+  }, AUTO_PLAY_DELAY)
+}
+
+const stopAutoPlay = () => {
+  if (autoPlayInterval.value) {
+    clearInterval(autoPlayInterval.value)
+    autoPlayInterval.value = null
+  }
+}
+
+const resetAutoPlay = () => {
+  stopAutoPlay()
+  startAutoPlay()
+}
+
+// Lifecycle
+onMounted(() => {
+  startAutoPlay()
+})
+
+onBeforeUnmount(() => {
+  stopAutoPlay()
+})
 </script>
 
 <template>
-  <section id="endorsements" class="py-20 bg-white">
+  <section
+    id="endorsements"
+    ref="sectionTarget"
+    class="py-24 md:py-32 bg-white scroll-mt-20 transition-all duration-700"
+    :class="{ 'opacity-0 translate-y-8': !sectionIsVisible }"
+  >
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-teal-900">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-teal-900">
         Community Endorsements
       </h2>
 
@@ -57,29 +117,84 @@ const endorsements: Endorsement[] = [
         <p class="text-xl text-gray-600">Endorsements coming soon!</p>
       </div>
 
-      <!-- Endorsements list -->
-      <div v-else class="space-y-6 max-w-4xl mx-auto">
-        <blockquote
-          v-for="endorsement in endorsements"
-          :key="endorsement.id"
-          class="bg-white rounded-lg p-6 shadow-md border-l-4 border-teal-800"
+      <!-- Carousel -->
+      <div v-else class="max-w-4xl mx-auto">
+        <div
+          class="relative min-h-[250px]"
+          @mouseenter="stopAutoPlay"
+          @mouseleave="startAutoPlay"
         >
-          <!-- Quote -->
-          <p class="text-lg italic mb-4 text-gray-700">
-            &ldquo;{{ endorsement.quote }}&rdquo;
-          </p>
+          <!-- Endorsement cards with fade transition -->
+          <div class="relative overflow-hidden rounded-lg">
+            <transition
+              enter-active-class="transition-opacity duration-500"
+              enter-from-class="opacity-0"
+              enter-to-class="opacity-100"
+              leave-active-class="transition-opacity duration-500"
+              leave-from-class="opacity-100"
+              leave-to-class="opacity-0"
+              mode="out-in"
+            >
+              <blockquote
+                v-if="currentEndorsement"
+                :key="currentEndorsement.id"
+                class="bg-gradient-to-br from-teal-50 to-white rounded-xl p-8 shadow-lg border-l-4 border-teal-800"
+              >
+                <!-- Quote -->
+                <p class="text-xl italic mb-6 text-gray-700 leading-relaxed">
+                  &ldquo;{{ currentEndorsement.quote }}&rdquo;
+                </p>
 
-          <!-- Source citation -->
-          <cite class="not-italic block">
-            <strong class="text-gray-900">{{ endorsement.name }}</strong>
-            <span class="text-gray-600 block text-sm">
-              {{ endorsement.title }}
-              <template v-if="endorsement.organization">
-                • {{ endorsement.organization }}
-              </template>
-            </span>
-          </cite>
-        </blockquote>
+                <!-- Source citation -->
+                <cite class="not-italic block">
+                  <strong class="text-gray-900 text-lg">{{ currentEndorsement.name }}</strong>
+                  <span class="text-gray-600 block text-sm mt-1">
+                    {{ currentEndorsement.title }}
+                    <template v-if="currentEndorsement.organization">
+                      • {{ currentEndorsement.organization }}
+                    </template>
+                  </span>
+                </cite>
+              </blockquote>
+            </transition>
+          </div>
+
+          <!-- Navigation arrows -->
+          <button
+            @click="previousEndorsement"
+            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full pr-4 p-2 text-teal-800 hover:text-teal-600 transition-colors"
+            aria-label="Previous endorsement"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+
+          <button
+            @click="nextEndorsement"
+            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full pl-4 p-2 text-teal-800 hover:text-teal-600 transition-colors"
+            aria-label="Next endorsement"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Carousel indicators -->
+        <div class="flex justify-center gap-2 mt-8">
+          <button
+            v-for="(_, index) in endorsements"
+            :key="index"
+            @click="goToEndorsement(index)"
+            :class="[
+              'w-3 h-3 rounded-full transition-all duration-300',
+              currentIndex === index ? 'bg-teal-800 w-8' : 'bg-teal-200 hover:bg-teal-400'
+            ]"
+            :aria-label="`Go to endorsement ${index + 1}`"
+            :aria-current="currentIndex === index ? 'true' : undefined"
+          />
+        </div>
       </div>
     </div>
   </section>

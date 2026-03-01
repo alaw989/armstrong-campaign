@@ -13,6 +13,11 @@
     <AboutSection />
   </section>
 
+  <!-- Why I'm Running Section -->
+  <section id="why-running">
+    <WhyRunningSection />
+  </section>
+
   <!-- Platform Section -->
   <section id="platform">
     <PlatformSection />

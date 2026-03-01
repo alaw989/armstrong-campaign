@@ -15,8 +15,9 @@
 const sections = [
   { id: 'hero', name: 'Home' },
   { id: 'about', name: 'About' },
+  { id: 'why-running', name: "Why I'm Running" },
   { id: 'platform', name: 'Platform' },
-  { id: 'gallery', name: 'Gallery' },
+  { id: 'gallery', name: 'Photos & Community' },
   { id: 'team', name: 'Team' },
   { id: 'endorsements', name: 'Endorsements' },
   { id: 'contact', name: 'Contact' }
@@ -99,9 +100,18 @@ onBeforeUnmount(() => {
 
 <template>
   <header
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full !m-0 shadow-sm bg-white/95 backdrop-blur-sm border-b border-gray-100"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full !m-0"
+    :class="{
+      'bg-transparent': !isScrolled,
+      'bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100': isScrolled
+    }"
   >
-    <div class="container mx-auto px-4 py-3 min-h-[128px] flex items-center justify-between gap-6 md:gap-8">
+    <div class="container mx-auto px-4 flex items-center justify-between gap-6 md:gap-8 transition-all duration-300"
+      :class="{
+        'py-4 min-h-[140px]': !isScrolled,
+        'py-2 min-h-[70px]': isScrolled
+      }"
+    >
       <!-- Logo -->
       <div class="flex-shrink-0">
         <NuxtLink
@@ -113,7 +123,11 @@ onBeforeUnmount(() => {
           <NuxtImg
             src="/images/campaign.jpg"
             alt="Armstrong for Houston"
-            class="h-20 md:h-24 w-auto object-contain"
+            class="w-auto object-cover object-top transition-all duration-300"
+            :class="{
+              'h-28 md:h-32': !isScrolled,
+              'h-14 md:h-16': isScrolled
+            }"
           />
         </NuxtLink>
       </div>
@@ -126,8 +140,10 @@ onBeforeUnmount(() => {
           @click="scrollToSection(section.id)"
           class="text-sm font-medium transition-colors relative py-2 cursor-pointer"
           :class="{
-            'text-gray-900 font-semibold': activeSection === section.id,
-            'text-gray-600 hover:text-gray-900': activeSection !== section.id
+            'text-white font-semibold': !isScrolled && activeSection === section.id,
+            'text-white/80 hover:text-white': !isScrolled && activeSection !== section.id,
+            'text-gray-900 font-semibold': isScrolled && activeSection === section.id,
+            'text-gray-600 hover:text-gray-900': isScrolled && activeSection !== section.id
           }"
         >
           {{ section.name }}
@@ -150,7 +166,11 @@ onBeforeUnmount(() => {
       <div class="md:hidden">
         <button
           type="button"
-          class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+          class="inline-flex items-center justify-center p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+          :class="{
+            'text-white hover:bg-white/10': !isScrolled,
+            'text-gray-700 hover:text-gray-900 hover:bg-gray-100': isScrolled
+          }"
           aria-label="Toggle navigation menu"
           :aria-expanded="isMobileMenuOpen"
           @click="toggleMobileMenu"

@@ -168,7 +168,7 @@ onBeforeUnmount(() => {
       :open="visible"
       @cancel="handleBackdropClick"
       @keydown="handleKeydown"
-      class="backdrop:bg-black/80 bg-transparent p-0 fixed inset-0 z-50 border-0"
+      class="backdrop:bg-black/80 bg-transparent p-0 fixed inset-0 z-50 border-0 flex items-center justify-center w-full h-full"
       aria-labelledby="lightbox-title"
     >
       <div

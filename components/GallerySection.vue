@@ -6,6 +6,7 @@
  *
  * Features:
  * - Responsive grid: 2 columns mobile, 3 columns tablet, 4 columns desktop
+ * - Scroll-triggered fade-in animation
  * - Square aspect ratio thumbnails with object-cover
  * - Lightbox modal for full-size viewing
  * - Keyboard accessible (click and keyboard navigation)
@@ -14,6 +15,9 @@
  * - Hover effects for interaction feedback
  * - "Coming soon" state when no photos available
  */
+
+// Scroll-triggered fade-in animation
+const { target: sectionTarget, isVisible: sectionIsVisible } = useIntersectionObserver()
 
 interface GalleryPhoto {
   id: string
@@ -86,11 +90,16 @@ const lightboxImages = computed(() => {
 </script>
 
 <template>
-  <section id="gallery" class="py-20 bg-gray-50">
+  <section
+    id="gallery"
+    ref="sectionTarget"
+    class="py-24 md:py-32 bg-gray-50 transition-all duration-700"
+    :class="{ 'opacity-0 translate-y-8': !sectionIsVisible }"
+  >
     <div class="container mx-auto px-4">
       <!-- Section Heading -->
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-        Campaign Gallery
+      <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">
+        Photos & Community
       </h2>
       <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
         See Xzandria in action across Houston County — from community events to volunteer activities.
@@ -132,7 +141,7 @@ const lightboxImages = computed(() => {
           v-for="(photo, index) in photos"
           :key="photo.id"
           @click="openLightbox(index)"
-          class="relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-teal-400 focus:ring-offset-2"
+          class="relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-teal-400 focus:ring-offset-2 cursor-pointer"
           :aria-label="`View full-size image: ${photo.alt}`"
         >
           <img

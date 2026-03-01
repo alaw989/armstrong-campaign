@@ -44,9 +44,9 @@ export default defineAppConfig({
 
   // Hero section content
   hero: {
-    badge: 'For Houston County',
+    badge: 'District 4',
     name: 'Xzandria Armstrong',
-    title: 'For Houston County, GA',
+    title: 'Houston County Board of Education',
     tagline: 'Leadership. Integrity. Progress.',
     photos: [
       '/images/hero/hero-1.jpg',
@@ -84,18 +84,31 @@ export default defineAppConfig({
   ],
 
   // About section content
-  // TODO: Update with campaign-provided final content before launch
   about: {
-    title: 'About Xzandria',
-    who: `Xzandria Armstrong is a lifelong Houston County resident with deep roots in our community. A product of our public schools and a graduate of Houston County High School, she understands the challenges and opportunities facing our families.
+    title: 'Rooted in Houston County',
+    tagline: 'The Daughter of a Teacher. A Mother. Your Advocate.',
+    who: `I was raised in the heart of Houston County by a mother who dedicated her life to the classroom. As the daughter of a retired Houston County teacher, I saw early on that education isn't just about books—it's about the care, the planning, and the heart an educator pours into every student. Those values are the foundation of who I am.
 
-After earning her degree from Georgia Southern University, Xzandria returned to Houston County to build her life and career here. She has worked in education and local business, giving her firsthand experience with the issues that matter most to our community.`,
-    why: `I'm running for Houston County because I believe in our community's potential. I've seen families struggling to make ends meet, teachers working hard with limited resources, and small businesses trying to recover from difficult times.
+Today, I am a mother and a dedicated community advocate. While my own children currently attend private school, that choice hasn't distanced me from our public schools; it has motivated me to work even harder for them. I believe every parent wants the same things: safety, opportunity, and a fair shot for their children. I have spent years as a listening ear for my neighbors and a voice for those who feel unheard. I am not a career politician; I am a neighbor who has been in the trenches, advocating for the resources and respect our District 4 families deserve.`,
+    why: `II. Why I Am Running: A Call to Action
+I am running for the School Board because I have seen the gaps in our system that can no longer be ignored. I am running because:
+• Our Children Deserve Better Safety: It breaks my heart to see students in our district navigating dangerous routes and climbing through fences just to get to their desks. No child should have to struggle just to get into the building.
+• Our Families Deserve to be Heard: I see our Hispanic families and neighbors facing language barriers that keep them from fully participating in their children's education. Every family deserves to be informed, included, and empowered.
+• Our Students Deserve a Path to the Finish Line:We have too many high schoolers in District 4 who are not graduating. We need a system that catches our kids before they fall and holds itself accountable for their success.
+• Our Teachers Deserve an Advocate: Having grown up in a teacher's home, I know that when we don't support our educators, our children are the ones who pay the price.
+I'm not running to climb a political ladder. I'm running to be a bridge between the School Board and the families of District 4. I am here to listen, to speak up, and to ensure that every child in our community has the same quality education and support that I want for my own.`,
+    vision: `IV. The District 4 Vision Plan (Executive Summary)
 
-We need leadership that listens to residents and puts people before politics. I'm running to ensure every voice in Houston County is heard and every family has the opportunity to thrive.`,
-    vision: `Together, we can build a Houston County where every child receives a quality education, every neighborhood is safe, and every family has access to good jobs and healthcare. A community that honors its past while building a brighter future for the next generation.
-
-My vision is of a Houston County that works for everyone — where opportunity is abundant, leaders are accountable, and progress lifts up all our residents.`
+The Priority
+The Goal
+Physical Safety
+Repairing infrastructure so every child arrives safely and with dignity.
+Inclusive Schools
+Breaking down language barriers for our Hispanic families and neighbors.
+Academic Success
+Raising the graduation rate through accountability and early intervention.
+Community Voice
+Transitioning from an "underserved" district to an "empowered" one.`
   },
 
   // Platform positions

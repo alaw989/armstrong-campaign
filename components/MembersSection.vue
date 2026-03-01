@@ -5,7 +5,11 @@
  * Displays campaign team members in a responsive grid layout.
  * Each member has a photo, name, and role.
  * Handles empty state gracefully.
+ * Scroll-triggered fade-in animation.
  */
+
+// Scroll-triggered fade-in animation
+const { target: sectionTarget, isVisible: sectionIsVisible } = useIntersectionObserver()
 
 interface TeamMember {
   id: string
@@ -49,9 +53,14 @@ const members: TeamMember[] = [
 </script>
 
 <template>
-  <section id="team" class="py-20 bg-gray-50">
+  <section
+    id="team"
+    ref="sectionTarget"
+    class="py-24 md:py-32 bg-gray-50 scroll-mt-20 transition-all duration-700"
+    :class="{ 'opacity-0 translate-y-8': !sectionIsVisible }"
+  >
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-teal-900">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-teal-900">
         Meet the Team
       </h2>
 
