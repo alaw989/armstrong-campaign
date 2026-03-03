@@ -25,7 +25,7 @@ export const useGalleryImages = (): GalleryPhoto[] => {
     { id: 'img-0017', thumb: '/images/gallery/IMG_0017.JPG', full: '/images/gallery/IMG_0017.JPG', alt: 'Campaign event photo' },
     { id: 'img-0018', thumb: '/images/gallery/IMG_0018.jpeg', full: '/images/gallery/IMG_0018.jpeg', alt: 'Campaign event photo' },
     { id: 'img-0019', thumb: '/images/gallery/IMG_0019.jpeg', full: '/images/gallery/IMG_0019.jpeg', alt: 'Campaign event photo' },
-    { id: 'img-0020', thumb: '/images/gallery/IMG_0020.jpeg', full: '/images/gallery/IMG_0020.jpeg', alt: 'Campaign event photo' },
+    { id: 'img-0020', thumb: '/images/gallery/IMG_0020.jpg', full: '/images/gallery/IMG_0020.jpg', alt: 'Campaign event photo' },
     { id: 'img-0021', thumb: '/images/gallery/IMG_0021.JPG', full: '/images/gallery/IMG_0021.JPG', alt: 'Campaign event photo' },
     { id: 'img-0022', thumb: '/images/gallery/IMG_0022.JPG', full: '/images/gallery/IMG_0022.JPG', alt: 'Campaign event photo' },
     { id: 'img-0023', thumb: '/images/gallery/IMG_0023.JPG', full: '/images/gallery/IMG_0023.JPG', alt: 'Campaign event photo' },

@@ -21,8 +21,8 @@ const heroContent = computed(() => (config as any).hero || {
   tagline: 'Leadership. Integrity. Progress.',
 })
 
-// Background image
-const backgroundImage = '/images/gallery/IMG_0020.jpeg'
+// Background image - optimized to 250KB
+const backgroundImage = '/images/gallery/IMG_0020.jpg'
 </script>
 
 <template>
@@ -31,13 +31,25 @@ const backgroundImage = '/images/gallery/IMG_0020.jpeg'
     class="relative flex items-center justify-center overflow-hidden bg-black -mt-32"
     style="height: 100vh; min-height: 600px;"
   >
-    <!-- Image Background -->
-    <img
-      :src="backgroundImage"
-      alt=""
-      class="absolute inset-0 w-full h-full"
-      style="object-fit: cover;"
-    />
+    <!-- Image Background - optimized WebP for all screen sizes -->
+    <picture class="absolute inset-0 w-full h-full">
+      <!-- Mobile optimized version -->
+      <source media="(max-width: 768px)" srcset="/images/gallery/IMG_0020-mobile.webp" type="image/webp">
+      <!-- Desktop WebP version -->
+      <source srcset="/images/gallery/IMG_0020-desktop.webp" type="image/webp">
+      <!-- JPEG fallback -->
+      <img
+        :src="backgroundImage"
+        alt=""
+        width="1920"
+        height="1280"
+        class="absolute inset-0 w-full h-full"
+        style="object-fit: cover;"
+        fetchpriority="high"
+        loading="eager"
+        decoding="sync"
+      />
+    </picture>
 
     <!-- Dark overlay for text readability -->
     <div class="absolute inset-0 bg-black/40" />

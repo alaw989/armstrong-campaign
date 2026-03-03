@@ -1,7 +1,58 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
+  // Only enable devtools in development
+  devtools: { enabled: process.env.NODE_ENV !== 'production' },
+
+  // Ensure Vue production build is used
+  vue: {
+    runtimeConfig: {
+      compilerOptions: {
+        isCustomElement: (tag) => tag.includes('-'),
+      },
+    },
+  },
+
+  // Vite configuration for production
+  vite: {
+    define: {
+      // Ensure Vue uses production mode
+      __VUE_PROD_DEVTOOLS__: 'false',
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
+    },
+    build: {
+      // Ensure minification
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
+      // Improve chunk splitting for better caching
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // Vendor chunk for better caching
+          },
+        },
+      },
+    },
+    // Improve build performance
+    optimizeDeps: {
+      include: [],
+    },
+    // CSS configuration - fix Vite 7 CSS injection
+    css: {
+      devSourcemap: true,
+    },
+  },
+
+  // Feature flags to reduce bundle size
+  features: {
+    // Disable unnecessary features
+    inlineStyles: false,
+  },
 
   future: {
     compatibilityVersion: 4,
@@ -16,6 +67,12 @@ export default defineNuxtConfig({
   // Static site generation configuration
   nitro: {
     preset: 'static',
+    // Add cache headers for static assets
+    routeRules: {
+      '/': { prerender: true, headers: { 'Cache-Control': 'public, max-age=0, must-revalidate' } },
+      '/images/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
+      '/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
+    },
   },
 
   // SEO and site configuration
@@ -26,8 +83,8 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
   },
 
-  // Modules - disable og-image due to unenv issue
-  modules: ['@nuxt/ui', '@nuxtjs/seo', '@nuxt/image'],
+  // Modules - @nuxt/ui removed as it's not used, SEO and image modules kept
+  modules: ['@nuxtjs/seo', '@nuxt/image', '@nuxtjs/tailwindcss'],
 
   // Image optimization configuration
   image: {
@@ -86,6 +143,10 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       link: [
         { rel: 'icon', type: 'image/jpeg', href: '/images/campaign.jpg' },
+        // Preload critical LCP images (WebP for performance)
+        { rel: 'preload', as: 'image', type: 'image/webp', fetchpriority: 'high', href: '/images/campaign-150.webp' },
+        { rel: 'preload', as: 'image', type: 'image/webp', fetchpriority: 'high', media: '(min-width: 769px)', href: '/images/gallery/IMG_0020-desktop.webp' },
+        { rel: 'preload', as: 'image', type: 'image/webp', fetchpriority: 'high', media: '(max-width: 768px)', href: '/images/gallery/IMG_0020-mobile.webp' },
       ],
     },
   },

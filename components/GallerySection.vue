@@ -151,12 +151,16 @@ const lightboxImages = computed(() => {
           class="relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-teal-400 focus:ring-offset-2 cursor-pointer"
           :aria-label="`View full-size image: ${photo.alt}`"
         >
-          <img
+          <NuxtImg
             :src="photo.thumb"
             :alt="photo.alt"
+            width="400"
+            height="400"
             loading="lazy"
             class="w-full h-full object-cover"
-          >
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            format="webp"
+          />
         </button>
         </div>
 

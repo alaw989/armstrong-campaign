@@ -71,7 +71,7 @@ const social = config.social || []
           <h3 class="font-semibold mb-2 text-white">Email</h3>
           <a
             :href="`mailto:${contact.email}`"
-            class="text-teal-100 hover:text-white underline transition-colors"
+            class="text-teal-100 hover:text-white underline transition-colors inline-block min-h-[44px] py-2"
           >
             {{ contact.email }}
           </a>
@@ -99,7 +99,7 @@ const social = config.social || []
           <h3 class="font-semibold mb-2 text-white">Phone</h3>
           <a
             :href="`tel:${contact.phone.replace(/\D/g, '')}`"
-            class="text-teal-100 hover:text-white underline transition-colors"
+            class="text-teal-100 hover:text-white underline transition-colors inline-block min-h-[44px] py-2"
           >
             {{ contact.phone }}
           </a>
@@ -116,7 +116,7 @@ const social = config.social || []
               target="_blank"
               rel="noopener noreferrer"
               :aria-label="`Follow us on ${item.platform}`"
-              class="px-4 py-2 bg-white text-teal-700 rounded-full flex items-center justify-center hover:bg-teal-50 transition-colors font-semibold text-sm hover:scale-105"
+              class="px-5 py-3 bg-white text-teal-700 rounded-full flex items-center justify-center hover:bg-teal-50 transition-colors font-semibold text-sm hover:scale-105 min-h-[48px] min-w-[48px]"
             >
               <svg v-if="item.platform === 'Facebook'" class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>

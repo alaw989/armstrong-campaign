@@ -181,15 +181,15 @@ onBeforeUnmount(() => {
           </button>
         </div>
 
-        <!-- Carousel indicators -->
+        <!-- Carousel indicators - minimum 48px for touch targets -->
         <div class="flex justify-center gap-2 mt-8">
           <button
             v-for="(_, index) in endorsements"
             :key="index"
             @click="goToEndorsement(index)"
             :class="[
-              'w-3 h-3 rounded-full transition-all duration-300',
-              currentIndex === index ? 'bg-teal-800 w-8' : 'bg-teal-200 hover:bg-teal-400'
+              'h-12 rounded-full transition-all duration-300 min-w-[3rem]',
+              currentIndex === index ? 'bg-teal-800 w-16' : 'bg-teal-200 hover:bg-teal-400 w-12'
             ]"
             :aria-label="`Go to endorsement ${index + 1}`"
             :aria-current="currentIndex === index ? 'true' : undefined"

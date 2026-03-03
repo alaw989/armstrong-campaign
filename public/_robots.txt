@@ -1,0 +1,5 @@
+# robots.txt for Armstrong for Houston campaign site
+User-agent: *
+Allow: /
+
+Sitemap: https://armstrongforhouston.com/sitemap.xml

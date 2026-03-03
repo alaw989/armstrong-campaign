@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Xzandria Armstrong",
+  "jobTitle": "Houston County Board of Education Candidate",
+  "description": "Leadership for Houston County, GA. Learn about Xzandria Armstrong's platform, vision, and campaign.",
+  "url": "https://armstrongforhouston.com",
+  "image": "https://armstrongforhouston.com/images/campaign.jpg",
+  "sameAs": [],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Armstrong for Houston County Committee"
+  },
+  "knowsAbout": [
+    "Education",
+    "Houston County",
+    "Community Leadership",
+    "Public Service"
+  ]
+}

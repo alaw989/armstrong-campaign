@@ -120,25 +120,32 @@ onBeforeUnmount(() => {
           class="block hover:opacity-90 transition-opacity"
           aria-label="Armstrong for Houston - Home"
         >
-          <NuxtImg
-            src="/images/campaign.jpg"
-            alt="Armstrong for Houston"
-            class="w-auto object-cover object-top transition-all duration-300"
-            :class="{
-              'h-28 md:h-32': !isScrolled,
-              'h-14 md:h-16': isScrolled
-            }"
-          />
+          <!-- Use plain img for LCP to avoid JavaScript hydration delay -->
+          <picture>
+            <source srcset="/images/campaign-150.webp" type="image/webp">
+            <img
+              src="/images/campaign.jpg"
+              alt="Armstrong for Houston"
+              width="150"
+              height="150"
+              fetchpriority="high"
+              class="w-auto object-cover object-top transition-all duration-300"
+              :class="{
+                'h-28 md:h-32': !isScrolled,
+                'h-14 md:h-16': isScrolled
+              }"
+            />
+          </picture>
         </NuxtLink>
       </div>
 
       <!-- Desktop Navigation Links -->
-      <div class="hidden md:flex items-center gap-6">
+      <div class="hidden md:flex items-center gap-1">
         <button
           v-for="section in sections"
           :key="section.id"
           @click="scrollToSection(section.id)"
-          class="text-sm font-medium transition-colors relative py-2 cursor-pointer"
+          class="text-sm font-medium transition-colors relative cursor-pointer flex items-center justify-center min-w-[44px] min-h-[48px] px-4"
           :class="{
             'text-white font-semibold': !isScrolled && activeSection === section.id,
             'text-white/80 hover:text-white': !isScrolled && activeSection !== section.id,
@@ -155,18 +162,20 @@ onBeforeUnmount(() => {
         </button>
 
         <!-- Donate CTA Button -->
-        <DonateButton
-          size="small"
-          variant="primary"
-          text="Donate"
-        />
+        <div class="ml-2">
+          <DonateButton
+            size="small"
+            variant="primary"
+            text="Donate"
+          />
+        </div>
       </div>
 
       <!-- Mobile Menu Button -->
-      <div class="md:hidden">
+      <div class="md:hidden flex items-center">
         <button
           type="button"
-          class="inline-flex items-center justify-center p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+          class="inline-flex items-center justify-center p-3 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 min-h-[44px] min-w-[44px]"
           :class="{
             'text-white hover:bg-white/10': !isScrolled,
             'text-gray-700 hover:text-gray-900 hover:bg-gray-100': isScrolled
@@ -208,9 +217,9 @@ onBeforeUnmount(() => {
       v-show="isMobileMenuOpen"
       class="md:hidden absolute left-0 right-0 w-full bg-white border-t border-gray-200 shadow-lg"
     >
-      <div class="px-4 py-4 space-y-2">
+      <div class="px-4 py-4 space-y-4">
         <!-- Donate CTA (mobile) - moved to top for prominence -->
-        <div class="pb-3 border-b border-gray-100">
+        <div class="pb-4 border-b border-gray-100 mb-2">
           <DonateButton
             size="medium"
             variant="primary"
@@ -223,7 +232,7 @@ onBeforeUnmount(() => {
           v-for="section in sections"
           :key="section.id"
           @click="scrollToSection(section.id)"
-          class="block w-full text-left px-3 py-3 rounded-md text-base font-medium transition-colors cursor-pointer"
+          class="block w-full text-left px-4 py-4 rounded-md text-base font-medium transition-colors cursor-pointer min-h-[48px] my-1"
           :class="{
             'bg-gray-100 text-gray-900': activeSection === section.id,
             'text-gray-700 hover:bg-gray-50 hover:text-gray-900': activeSection !== section.id

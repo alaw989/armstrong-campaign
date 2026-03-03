@@ -37,9 +37,9 @@ const committeeName = computed(() =>
   (config as any).committee?.name || 'Armstrong for Houston County Committee'
 )
 
-// Aria label for screen readers (WCAG 2.1 AA - indicates external link)
+// Aria label for screen readers (WCAG 2.1 AA - includes visible text and external link info)
 const ariaLabel = computed(() =>
-  `Donate to support ${committeeName.value} (opens in new tab)`
+  `${props.text} - Donate to support ${committeeName.value} (opens in new tab)`
 )
 
 // Variant classes with WCAG 2.1 AA compliant colors
@@ -54,13 +54,13 @@ const variantClasses = computed(() => {
   return classes[props.variant]
 })
 
-// Size classes
+// Size classes - all sizes meet WCAG 2.1 AA touch target minimum of 44x44px
 const sizeClasses = computed(() => {
   const classes = {
-    xs: 'px-3 py-1.5 text-xs',
-    small: 'px-4 py-2 text-sm',
-    medium: 'px-6 py-3 text-base',
-    large: 'px-8 py-4 text-lg'
+    xs: 'px-3 py-3 min-h-[44px] min-w-[44px] text-xs',
+    small: 'px-4 py-3 min-h-[44px] min-w-[44px] text-sm',
+    medium: 'px-6 py-3 min-h-[48px] min-w-[48px] text-base',
+    large: 'px-8 py-4 min-h-[48px] min-w-[48px] text-lg'
   }
   return classes[props.size]
 })

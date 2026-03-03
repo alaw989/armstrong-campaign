@@ -254,7 +254,7 @@ const positions: PlatformPosition[] = [
           role="list"
           aria-label="Platform positions. Use arrow keys, swipe, or drag to navigate."
         >
-          <article
+          <div
             v-for="(position, index) in positions"
             :key="position.id"
             :ref="(el: any) => setCardRef(el, index)"
@@ -295,7 +295,7 @@ const positions: PlatformPosition[] = [
 
             <!-- Hover accent border -->
             <div class="absolute inset-0 rounded-2xl border-2 border-teal-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-          </article>
+          </div>
         </div>
 
         <!-- Dot navigation -->
@@ -416,9 +416,10 @@ const positions: PlatformPosition[] = [
   }
 }
 
-/* Dot indicator */
+/* Dot indicator - minimum 48px for touch targets */
 .dot-indicator {
-  min-height: 0.75rem;
+  min-height: 3rem;
+  min-width: 3rem;
   cursor: pointer;
   padding: 0;
   border: none;

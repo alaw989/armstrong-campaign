@@ -3,48 +3,53 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <HeroSection />
-  </section>
+  <!-- Hero Section (above fold - eager load) -->
+  <HeroSection />
 
-  <!-- About Section -->
-  <section id="about">
-    <AboutSection />
-  </section>
+  <!-- About Section (above fold - eager load) -->
+  <AboutSection />
 
-  <!-- Why I'm Running Section -->
-  <section id="why-running">
-    <WhyRunningSection />
-  </section>
+  <!-- Why I'm Running Section (above fold - eager load) -->
+  <WhyRunningSection />
 
-  <!-- Platform Section -->
-  <section id="platform">
-    <PlatformSection />
-  </section>
+  <!-- Platform Section (below fold - lazy load) -->
+  <LazyPlatformSection />
 
-  <!-- Gallery Section (placeholder) -->
-  <section id="gallery">
-    <GallerySection />
-  </section>
+  <!-- Gallery Section (below fold - lazy load) -->
+  <LazyGallerySection />
 
-  <!-- Team Members -->
-  <section id="team">
-    <MembersSection />
-  </section>
+  <!-- Team Members (below fold - lazy load) -->
+  <LazyMembersSection />
 
-  <!-- Endorsements -->
-  <section id="endorsements">
-    <EndorsementsSection />
-  </section>
+  <!-- Endorsements (below fold - lazy load) -->
+  <LazyEndorsementsSection />
 
-  <!-- Contact Section (placeholder) -->
-  <section id="contact">
-    <ContactSection />
-  </section>
+  <!-- Contact Section (below fold - lazy load) -->
+  <LazyContactSection />
 </template>
 
 <script setup lang="ts">
+// Structured data for SEO (JSON-LD)
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Xzandria Armstrong',
+  jobTitle: 'Houston County Board of Education Candidate',
+  description: 'Leadership for Houston County, GA. Learn about Xzandria Armstrong\'s platform, vision, and campaign.',
+  url: 'https://armstrongforhouston.com',
+  image: 'https://armstrongforhouston.com/images/campaign.jpg',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Armstrong for Houston County Committee'
+  },
+  knowsAbout: [
+    'Education',
+    'Houston County',
+    'Community Leadership',
+    'Public Service'
+  ]
+}
+
 useHead({
   title: 'Xzandria Armstrong for Houston County - Leadership for Our Community',
   meta: [
@@ -64,6 +69,12 @@ useHead({
   ],
   link: [
     { rel: 'canonical', href: 'https://armstrongforhouston.com/' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(structuredData)
+    }
   ]
 })
 </script>

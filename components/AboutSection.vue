@@ -57,12 +57,16 @@ const bioParagraphs = computed(() => {
         <!-- Image Column -->
         <div class="order-1 md:order-1">
           <div class="relative">
-            <img
+            <NuxtImg
               src="/images/gallery/IMG_0046.JPG"
               :alt="aboutContent.title"
+              width="800"
+              height="600"
               class="w-full h-auto rounded-2xl shadow-xl"
               style="box-shadow: 0 25px 50px -12px rgba(13, 148, 136, 0.25);"
               loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              format="webp"
             />
             <!-- Decorative accent -->
             <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-teal-100 rounded-full -z-10 opacity-50" />

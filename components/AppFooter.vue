@@ -24,7 +24,7 @@ const social = config.social || []
   <footer class="bg-gray-900 text-white">
     <div class="container mx-auto px-4 py-8">
       <!-- Social media links -->
-      <div v-if="social.length > 0" class="flex justify-center space-x-6 mb-6">
+      <div v-if="social.length > 0" class="flex justify-center space-x-4 mb-6">
         <a
           v-for="item in social"
           :key="item.platform"
@@ -32,7 +32,7 @@ const social = config.social || []
           target="_blank"
           rel="noopener noreferrer"
           :aria-label="`Follow us on ${item.platform}`"
-          class="text-gray-400 hover:text-white transition-colors font-semibold"
+          class="text-gray-400 hover:text-white transition-colors font-semibold px-4 py-3 min-h-[48px] min-w-[48px] flex items-center justify-center"
         >
           {{ item.platform }}
         </a>
@@ -49,7 +49,7 @@ const social = config.social || []
       </div>
 
       <!-- Copyright -->
-      <div class="text-xs text-gray-500 border-t border-gray-800 pt-4">
+      <div class="text-xs text-gray-400 border-t border-gray-700 pt-4">
         <p>&copy; {{ currentYear }} {{ committeeName }}. All rights reserved.</p>
       </div>
     </div>
